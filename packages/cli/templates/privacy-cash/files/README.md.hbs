@@ -1,0 +1,64 @@
+# {{projectName}}
+
+A privacy-focused Solana application built with Privacy Cash SDK.
+
+## Getting Started
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Features
+
+- **Private Transfers**: Shield and withdraw SOL using zero-knowledge proofs
+- **Wallet Integration**: Phantom and Solflare wallet support
+- **Dark Theme**: Beautiful dark UI ready for customization
+
+## Available Commands
+
+```bash
+npm run dev      # Start development server
+npm run build    # Build for production
+npm run test     # Run privacy tests
+npm run deploy   # Deploy to devnet
+```
+
+## Environment Variables
+
+Copy `.env.example` to `.env.local` and update the values:
+
+```bash
+cp .env.example .env.local
+```
+
+Required:
+- `HELIUS_API_KEY` - Your Helius API key (get one at helius.dev)
+
+## How Privacy Cash Works
+
+1. **Shield** - Deposit SOL into the privacy pool. You receive a secret note.
+2. **Wait** - For better privacy, wait before withdrawing.
+3. **Withdraw** - Use your note to withdraw to any address. ZK proofs ensure unlinkability.
+
+## Tech Stack
+
+- Next.js 14
+- Privacy Cash SDK
+- Solana Wallet Adapter
+- Tailwind CSS
+- TypeScript
+
+## Requirements
+
+- Node.js 24+ (required for Privacy Cash SDK)
+- npm, yarn, or pnpm
+
+## License
+
+MIT
+
+---
+
+Built with [PrivKit](https://github.com/hemjay07/PrivKit)
