@@ -1,0 +1,75 @@
+# {{projectName}}
+
+A ZK Compression application built with [Light Protocol](https://lightprotocol.com).
+
+> Generated with [PrivKit](https://github.com/username/privkit) - Zero to private in one command
+
+## Features
+
+- **ZK Compression** - State compression using zero-knowledge proofs
+- **5000x Cheaper** - Dramatically reduced account costs
+- **SPL Compatible** - Compressed tokens can decompress to standard SPL
+- **Helius Powered** - Fast, reliable ZK-enabled RPC
+
+## Requirements
+
+- **Node.js 18+**
+- **Helius RPC** (Required! Standard RPC won't work)
+- **Solana Wallet** (Phantom, Solflare)
+- **Devnet SOL** for testing
+
+## Important: Helius RPC Required
+
+Light Protocol's ZK Compression **requires** Helius RPC. Standard Solana RPC endpoints do not support the compression indexer.
+
+Get a free Helius API key at: https://helius.dev
+
+## Getting Started
+
+1. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+2. **Configure Helius RPC**
+   ```bash
+   cp .env.example .env.local
+   # Edit .env.local with your Helius API key
+   ```
+
+3. **Start development server**
+   ```bash
+   npm run dev
+   ```
+
+4. **Open in browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
+
+## Commands
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server |
+| `npm run build` | Build for production |
+| `npm run test` | Run tests |
+| `npm run deploy` | Run deployment helper |
+
+## How ZK Compression Works
+
+1. **Compression**: State is compressed into a Merkle tree, with only the root stored on-chain.
+
+2. **Proofs**: Each state update includes a ZK proof verifying the update is valid.
+
+3. **Cost Savings**: Instead of paying for full account rent, you pay a tiny fraction.
+
+4. **Decompression**: Compressed state can be atomically decompressed to standard accounts when needed.
+
+## Learn More
+
+- [Light Protocol Docs](https://docs.lightprotocol.com)
+- [Light Protocol GitHub](https://github.com/Lightprotocol/light-protocol)
+- [Helius Documentation](https://docs.helius.dev)
+
+## License
+
+MIT

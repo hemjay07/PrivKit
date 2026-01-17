@@ -1,0 +1,28 @@
+import { Connection, clusterApiUrl, PublicKey } from '@solana/web3.js';
+
+const NETWORK = process.env.NEXT_PUBLIC_SOLANA_NETWORK || 'devnet';
+const RPC_URL = process.env.NEXT_PUBLIC_SOLANA_RPC_URL ||
+  'https://devnet.helius-rpc.com/?api-key={{heliusApiKey}}';
+
+export const connection = new Connection(RPC_URL, 'confirmed');
+
+export function getExplorerUrl(signature: string): string {
+  return `https://explorer.solana.com/tx/${signature}?cluster=${NETWORK}`;
+}
+
+export function getExplorerAddressUrl(address: string): string {
+  return `https://explorer.solana.com/address/${address}?cluster=${NETWORK}`;
+}
+
+export function isValidPublicKey(address: string): boolean {
+  try {
+    new PublicKey(address);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+export function truncateAddress(address: string, chars: number = 4): string {
+  return `${address.slice(0, chars)}...${address.slice(-chars)}`;
+}

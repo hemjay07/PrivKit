@@ -1,0 +1,93 @@
+# {{projectName}}
+
+A multi-party computation application built with [Arcium](https://arcium.com).
+
+> Generated with [PrivKit](https://github.com/hemjay07/PrivKit) - Zero to private in one command
+
+## Advanced Template
+
+Arcium integration is more complex than other privacy SDKs. Full MPC functionality requires:
+
+1. **Custom Anchor Program** - With `#[arcium]` macros
+2. **MPC Cluster Access** - Network of computation nodes
+3. **Encryption Setup** - Client-side cipher configuration
+4. **Callback Server** - For large computations (optional)
+
+This template provides the **client-side setup** and demonstrates the architecture.
+
+## Features
+
+- **MPC Framework** - Multi-party computation structure
+- **Client Encryption** - Data encrypted before submission
+- **On-chain Verification** - Results verified on Solana
+- **Anchor Ready** - Prepared for program integration
+
+## Use Cases
+
+- **Dark Pools** - Private order matching for trading
+- **Hidden Game State** - Fog of war, private hands
+- **Private Voting** - Secret ballot systems
+- **Sealed Auctions** - Hidden bid auctions
+
+## Getting Started
+
+1. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+2. **Configure environment**
+   ```bash
+   cp .env.example .env.local
+   # Edit with your Helius API key
+   ```
+
+3. **Start development server**
+   ```bash
+   npm run dev
+   ```
+
+## Full MPC Integration
+
+To enable actual MPC computation:
+
+1. **Deploy Anchor Program**
+   ```bash
+   anchor build
+   anchor deploy
+   ```
+
+2. **Configure MPC Cluster**
+   ```bash
+   # Add to .env.local
+   ARCIUM_CLUSTER_ID=your_cluster_id
+   ARCIUM_PROGRAM_ID=your_deployed_program
+   ```
+
+3. **Update Client Code**
+   - Uncomment SDK imports in arcium.ts
+   - Replace demo functions with real SDK calls
+
+## Available Commands
+
+```bash
+npm run dev      # Start development server
+npm run build    # Build for production
+npm run test     # Run tests
+npm run deploy   # Run deployment helper
+```
+
+## Resources
+
+- [Arcium Documentation](https://docs.arcium.com)
+- [Arcium GitHub](https://github.com/arcium-hq)
+- [Example Programs](https://docs.arcium.com/developers/examples)
+- [Anchor Framework](https://www.anchor-lang.com)
+
+## License
+
+MIT
+
+---
+
+Built with [PrivKit](https://github.com/hemjay07/PrivKit)

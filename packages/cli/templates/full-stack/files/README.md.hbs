@@ -1,0 +1,83 @@
+# {{projectName}}
+
+A full-stack Solana privacy application featuring all three privacy SDKs.
+
+> Generated with [PrivKit](https://github.com/username/privkit) - Zero to private in one command
+
+## Privacy SDKs Included
+
+| SDK | Purpose | Complexity |
+|-----|---------|------------|
+| Privacy Cash | Private SOL/SPL transfers | Low |
+| Light Protocol | ZK Compressed tokens | Medium |
+| Arcium | MPC computation | High |
+
+## Getting Started
+
+1. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+2. **Configure environment**
+   ```bash
+   cp .env.example .env.local
+   # Edit .env.local with your Helius API key
+   ```
+
+3. **Start development server**
+   ```bash
+   npm run dev
+   ```
+
+4. **Open in browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
+
+## SDK Comparison
+
+| Feature | Privacy Cash | Light Protocol | Arcium |
+|---------|--------------|----------------|--------|
+| Setup Time | 5 mins | 15 mins | 1+ hour |
+| Node Version | 24+ | 18+ | 18+ |
+| RPC | Standard | Helius | Standard + MPC |
+| Best For | Payments | Scalable tokens | Private computation |
+
+## Project Structure
+
+```
+src/
+├── app/                    # Next.js pages
+├── lib/
+│   └── privacy/
+│       ├── index.ts        # Unified exports
+│       ├── unified.ts      # Abstraction layer
+│       ├── privacy-cash.ts # Privacy Cash SDK
+│       ├── light-protocol.ts # Light Protocol SDK
+│       └── arcium.ts       # Arcium SDK
+└── tests/                  # Privacy tests
+```
+
+## Using the Unified Interface
+
+```typescript
+import { UnifiedPrivacy } from '@/lib/privacy/unified';
+
+// Get recommendations
+const provider = UnifiedPrivacy.getRecommendation('payments');
+
+// Compare features
+const features = UnifiedPrivacy.getFeatureComparison();
+```
+
+## Commands
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server |
+| `npm run build` | Build for production |
+| `npm run test` | Run privacy tests |
+| `npm run deploy` | Run deployment helper |
+
+## License
+
+MIT
