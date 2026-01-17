@@ -1,4 +1,58 @@
 # PrivKit - Claude Progress Report
+
+## Operational Notes
+- **Start CLI development**: `npm install --prefix packages/cli && npm run build --prefix packages/cli`
+- **Test CLI generation**: `node packages/cli/bin/create-solana-privacy-app.js my-project -t privacy-cash --helius-key testkey --skip-install --skip-git -y`
+- **All 4 templates available**: privacy-cash, light-protocol, arcium, full-stack
+- **GOTCHA**: `.env.example` uses placeholder `YOUR_HELIUS_API_KEY`, `.env.local` gets actual key
+- **GOTCHA**: Helius API key uses password prompt with masking (`mask: '*'`) in interactive mode
+- **Spec reference**: `/Users/mujeeb/Downloads/PRIVKIT_COMPLETE_SPEC_V3.md`
+
+---
+
+## Session 2 (Coding Agent)
+### Date: 2026-01-17
+
+### Summary
+Completed all Security & Access Control features (#1-8).
+
+### Features Completed This Session
+- Feature #2: Generated .env uses placeholder not actual key - PASSING
+- Feature #3: .gitignore includes .env in all templates - PASSING
+- Feature #4: No secrets exposed in CLI output - PASSING
+- Feature #5: No hardcoded API keys in template source - PASSING
+- Feature #6: Generated projects dont commit .env.local - PASSING
+- Feature #7: Password/key inputs not visible during typing - PASSING
+- Feature #8: Error messages dont leak sensitive info - PASSING
+
+### Implementation Work Done
+1. **Fixed .env.example files** - Changed from Handlebars template to static placeholder
+2. **Created all 4 templates** with complete file structures:
+   - privacy-cash: Private SOL transfers with ZK proofs (Node 24+)
+   - light-protocol: Compressed tokens with ZK compression (Helius required)
+   - arcium: MPC computation for private smart contracts
+   - full-stack: All three SDKs combined with unified interface
+3. **Each template includes**:
+   - `template.json` - Metadata and dependencies
+   - `package.json.hbs` - Generated project config
+   - `.env.example` - Safe to commit (placeholders)
+   - `.gitignore` - Properly ignores .env files
+   - `src/app/` - Next.js 14 pages and components
+   - `src/lib/privacy/` - SDK wrapper modules
+   - `src/tests/` - Vitest test files
+
+### Current Progress
+- **8/290 features passing (2.8%)**
+- Security & Access Control: 8/8 complete (100%)
+
+### Next Steps
+1. Continue with Navigation Integrity features
+2. Test CLI argument parsing (--help, --version)
+3. Test template selection workflow
+4. Implement CLI tests in `packages/cli/tests/`
+
+---
+
 ## Session 1 (Initializer Agent)
 ## Date: 2026-01-17
 
