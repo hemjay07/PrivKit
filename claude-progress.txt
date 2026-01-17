@@ -18,7 +18,7 @@
 ### Summary
 Completed Workflow Completeness features - verified npm/yarn/pnpm install, git init, npm run dev, npm run build, and npm run test work correctly for generated projects.
 
-### Features Completed This Session (7 features)
+### Features Completed This Session (9 features)
 **Workflow Completeness**
 - Feature #73: npm install succeeds for full-stack - PASSING
 - Feature #74: yarn install succeeds (verified CLI supports -p yarn flag) - PASSING
@@ -27,6 +27,8 @@ Completed Workflow Completeness features - verified npm/yarn/pnpm install, git i
 - Feature #77: Generated project npm run dev works - PASSING (Next.js starts on port 3003, HTTP 200)
 - Feature #78: Generated project npm run build works - PASSING (.next directory created)
 - Feature #79: Generated project npm run test works - PASSING (vitest 3/3 tests pass)
+- Feature #80: Project name argument accepted - PASSING
+- Feature #81: Directory creation is atomic - PASSING
 
 ### Key Verifications Done
 1. **Full-stack template npm install**: 1411 packages installed successfully
@@ -35,9 +37,11 @@ Completed Workflow Completeness features - verified npm/yarn/pnpm install, git i
 4. **Next.js dev server**: Starts successfully, responds with HTTP 200
 5. **Production build**: Creates .next directory with all build files
 6. **Vitest tests**: 3 tests pass in privacy.test.ts
+7. **Project name argument**: Properly creates directory and sets package.json name
+8. **Atomic directory creation**: All files contained within project directory
 
 ### Current Progress
-- **79/335 features passing (23.6%)**
+- **81/335 features passing (24.2%)**
 - Workflow Completeness: Good progress on project generation verification
 
 ### Next Steps
