@@ -90,8 +90,36 @@ cd packages/cli && npm link
 create-solana-privacy-app test-project
 ```
 
+## Implementation Progress
+- Feature #1 (Helius API key masked in prompts): PASSING
+- CLI Core implementation completed
+- Privacy-cash template structure completed
+- Total progress: 1/290 (0.3%)
+
+## Session 1 Implementation Details
+Added the following to CLI:
+- `packages/cli/src/index.ts` - Main entry with Commander + Inquirer
+- `packages/cli/src/generator.ts` - Project scaffolding logic
+- `packages/cli/src/templates.ts` - Template registry
+- `packages/cli/src/utils/logger.ts` - Chalk + ora utilities
+- `packages/cli/src/utils/validation.ts` - zod + npm name validation
+- `packages/cli/src/utils/fs.ts` - File system helpers
+- `packages/cli/src/utils/package-manager.ts` - npm/yarn/pnpm detection
+- `packages/cli/bin/create-solana-privacy-app.js` - CLI entry point
+
+Added privacy-cash template:
+- `packages/cli/templates/privacy-cash/template.json`
+- `packages/cli/templates/privacy-cash/files/` - All template files
+
 ## Notes
 - The complete implementation spec is at: `/Users/mujeeb/Downloads/PRIVKIT_COMPLETE_SPEC_V3.md`
 - Use YOLO mode for CLI development (no browser testing needed)
 - Use standard mode for landing page (needs visual verification)
 - Privacy Cash template requires Node 24+
+
+## Remaining Work
+1. Implement remaining 3 templates (light-protocol, arcium, full-stack)
+2. Add CLI tests
+3. Refine landing page components
+4. Complete CI/CD workflows
+5. Add documentation files (CONTRIBUTING.md, LICENSE)
