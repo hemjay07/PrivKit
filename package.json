@@ -1,0 +1,48 @@
+{
+  "name": "privkit",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Zero to private in one command - scaffold Solana privacy projects",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev:cli": "npm run dev --workspace=packages/cli",
+    "dev:web": "npm run dev --workspace=apps/web",
+    "build": "npm run build --workspaces --if-present",
+    "build:cli": "npm run build --workspace=packages/cli",
+    "build:web": "npm run build --workspace=apps/web",
+    "test": "npm run test --workspaces --if-present",
+    "test:cli": "npm run test --workspace=packages/cli",
+    "lint": "npm run lint --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "clean": "rm -rf node_modules packages/*/node_modules apps/*/node_modules packages/*/dist apps/*/.next"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hemjay07/PrivKit.git"
+  },
+  "keywords": [
+    "solana",
+    "privacy",
+    "zk",
+    "zero-knowledge",
+    "cli",
+    "scaffold",
+    "create-app",
+    "privacy-cash",
+    "light-protocol",
+    "arcium",
+    "helius"
+  ],
+  "author": "PrivKit Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hemjay07/PrivKit/issues"
+  },
+  "homepage": "https://github.com/hemjay07/PrivKit#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

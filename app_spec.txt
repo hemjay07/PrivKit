@@ -1,0 +1,715 @@
+<project_specification>
+  <project_name>PrivKit</project_name>
+
+  <feature_count>280</feature_count>
+
+  <overview>
+    PrivKit is a CLI scaffolding tool for Solana privacy development - "the create-react-app for Solana privacy."
+    One command (npx create-solana-privacy-app) scaffolds complete privacy-focused projects with Privacy Cash,
+    Light Protocol, or Arcium SDKs pre-configured for devnet deployment. The project includes both the npm CLI
+    package AND a sleek marketing landing page with animated terminal demos for hackathon presentation impact.
+    Target: $25,500 in hackathon prizes (Privacy Tooling $15k, Quicknode $3k, Helius $5k, Aztec $2.5k).
+  </overview>
+
+  <technology_stack>
+    <cli_package>
+      <runtime>Node.js 18+ (ESM)</runtime>
+      <language>TypeScript 5.x</language>
+      <cli_framework>Commander.js 12.x</cli_framework>
+      <prompts>@inquirer/prompts 7.x (ESM)</prompts>
+      <styling>chalk 5.x (ESM), ora 8.x (ESM)</styling>
+      <file_system>fs-extra 11.x</file_system>
+      <templating>Handlebars 4.x</templating>
+      <validation>zod 3.x, validate-npm-package-name 5.x</validation>
+      <build>tsup 8.x</build>
+      <testing>vitest 2.x</testing>
+    </cli_package>
+    <landing_page>
+      <framework>Next.js 14 (App Router)</framework>
+      <styling>Tailwind CSS 3.4</styling>
+      <animations>Framer Motion</animations>
+      <terminal_demo>Custom typing animation component</terminal_demo>
+      <deployment>Vercel-ready</deployment>
+      <port>3000</port>
+    </landing_page>
+    <generated_projects>
+      <framework>Next.js 14</framework>
+      <wallet>@solana/wallet-adapter-react</wallet>
+      <rpc>Helius RPC</rpc>
+      <testing>vitest</testing>
+    </generated_projects>
+  </technology_stack>
+
+  <prerequisites>
+    <environment_setup>
+      - Node.js 18+ installed (24+ for Privacy Cash template due to SDK requirements)
+      - npm, yarn, or pnpm package manager
+      - Helius API key (free at helius.dev) for generated projects
+      - Git for version control
+    </environment_setup>
+  </prerequisites>
+
+  <core_features>
+    <cli_interface>
+      - Main command: npx create-solana-privacy-app [project-name] [options]
+      - Interactive mode with beautiful prompts (project name, template selection, package manager, Helius key)
+      - Non-interactive mode with flags (-t template, -p package-manager, -y yes-to-all, --helius-key)
+      - ASCII art banner on startup with tagline "Zero to private in one command"
+      - Colored output with chalk (success green, error red, info blue)
+      - Spinner animations with ora during file operations
+      - Clear success message with next steps after generation
+    </cli_interface>
+
+    <template_system>
+      - Four templates: privacy-cash, light-protocol, arcium, full-stack
+      - Template registry with metadata (name, description, node version requirements)
+      - Handlebars templating for variable substitution (projectName, heliusApiKey)
+      - Files with .hbs extension processed, others copied directly
+      - Each template includes: Next.js app, wallet integration, SDK wrapper, tests, deploy script
+    </template_system>
+
+    <privacy_cash_template>
+      - Privacy Cash SDK (privacycash ^1.1.7) integration
+      - Node.js 24+ requirement (enforced in package.json engines)
+      - SOL deposit/withdraw functions with ZK proofs
+      - SPL token support (USDC, USDT)
+      - Demo page with Shield/Withdraw/Balance buttons
+      - Dark theme UI with blue primary color
+    </privacy_cash_template>
+
+    <light_protocol_template>
+      - Light Protocol SDK (@lightprotocol/stateless.js, @lightprotocol/compressed-token)
+      - Helius RPC requirement (standard RPC won't work)
+      - Compressed token creation and transfer
+      - 5000x cheaper than regular accounts messaging
+      - Demo page with Create Mint/Transfer/Check Balances
+      - Dark theme UI with purple primary color
+    </light_protocol_template>
+
+    <arcium_template>
+      - Arcium SDK (@arcium-hq/client, @coral-xyz/anchor)
+      - MPC computation for private smart contracts
+      - Client-side encryption utilities
+      - Use case showcase (dark pools, hidden game state, private voting)
+      - Educational demo page explaining Arcium architecture
+      - Dark theme UI with orange primary color
+    </arcium_template>
+
+    <full_stack_template>
+      - All three SDKs combined
+      - Unified privacy abstraction layer
+      - Provider switching (UnifiedPrivacy class)
+      - SDK comparison table in UI
+      - Feature comparison helper (getFeatureComparison)
+      - Recommendation engine (getRecommendation by use case)
+    </full_stack_template>
+
+    <landing_page>
+      - Hero section with animated terminal showing CLI in action
+      - "npx create-solana-privacy-app" with copy-to-clipboard button
+      - Template showcase cards with hover effects
+      - Features section highlighting benefits (Zero Config, Pre-configured SDKs, etc.)
+      - Bounty badges showing prize targets
+      - Dark theme with gradient accents (blue to purple)
+      - Fully responsive (mobile, tablet, desktop)
+      - Fast load time (&lt;2s)
+    </landing_page>
+
+    <project_generation>
+      - Check if target directory exists (fail if exists)
+      - Create directory structure
+      - Copy and process template files
+      - Install dependencies (npm/yarn/pnpm based on user choice)
+      - Initialize git repository with initial commit
+      - Display success message with next steps
+    </project_generation>
+
+    <validation>
+      - Project name validation (npm package name rules)
+      - Template name validation (must be one of 4 options)
+      - Package manager validation (npm/yarn/pnpm)
+      - Helius API key acceptance (any non-empty string)
+    </validation>
+
+    <error_handling>
+      - Directory already exists error
+      - Template not found error
+      - npm install failure handling
+      - Git init failure handling (non-fatal)
+      - User cancellation (Ctrl+C) handling
+      - Clear error messages with chalk.red
+    </error_handling>
+  </core_features>
+
+  <file_structure>
+    <cli_package>
+      privkit/
+      ├── bin/
+      │   └── create-solana-privacy-app.js    # Shebang entry point
+      ├── src/
+      │   ├── index.ts                        # Main entry with Commander
+      │   ├── generator.ts                    # Project generation logic
+      │   ├── templates.ts                    # Template registry
+      │   └── utils/
+      │       ├── logger.ts                   # Chalk + Ora utilities
+      │       ├── validation.ts               # Zod schemas
+      │       ├── fs.ts                       # File system helpers
+      │       └── package-manager.ts          # npm/yarn/pnpm detection
+      ├── templates/
+      │   ├── privacy-cash/
+      │   │   ├── template.json
+      │   │   └── files/                      # 17 template files
+      │   ├── light-protocol/
+      │   │   ├── template.json
+      │   │   └── files/                      # 18 template files
+      │   ├── arcium/
+      │   │   ├── template.json
+      │   │   └── files/                      # 18 template files
+      │   └── full-stack/
+      │       ├── template.json
+      │       └── files/                      # 22 template files
+      ├── tests/
+      │   ├── cli.test.ts
+      │   ├── generator.test.ts
+      │   ├── validation.test.ts
+      │   └── templates.test.ts
+      ├── package.json
+      ├── tsconfig.json
+      ├── tsup.config.ts
+      └── vitest.config.ts
+    </cli_package>
+
+    <landing_page>
+      apps/web/
+      ├── src/
+      │   ├── app/
+      │   │   ├── layout.tsx
+      │   │   ├── page.tsx
+      │   │   └── globals.css
+      │   └── components/
+      │       ├── Hero.tsx
+      │       ├── TerminalDemo.tsx
+      │       ├── TemplateShowcase.tsx
+      │       ├── Features.tsx
+      │       ├── CopyButton.tsx
+      │       └── Footer.tsx
+      ├── public/
+      │   └── favicon.ico
+      ├── package.json
+      ├── tailwind.config.ts
+      ├── postcss.config.mjs
+      └── next.config.mjs
+    </landing_page>
+
+    <generated_project_structure>
+      my-app/
+      ├── src/
+      │   ├── app/
+      │   │   ├── layout.tsx
+      │   │   ├── page.tsx
+      │   │   ├── providers.tsx
+      │   │   └── globals.css
+      │   ├── lib/
+      │   │   ├── solana.ts
+      │   │   └── privacy/
+      │   │       └── [sdk].ts
+      │   └── tests/
+      │       └── privacy.test.ts
+      ├── scripts/
+      │   └── deploy.ts
+      ├── .env.example
+      ├── package.json
+      ├── tsconfig.json
+      ├── tailwind.config.ts
+      └── README.md
+    </generated_project_structure>
+  </file_structure>
+
+  <api_endpoints_summary>
+    <note>This is a CLI tool, not a web API. The "API" here refers to the CLI interface.</note>
+
+    <cli_commands>
+      - npx create-solana-privacy-app (interactive mode)
+      - npx create-solana-privacy-app [name] (with project name)
+      - npx create-solana-privacy-app [name] -t [template] (with template)
+      - npx create-solana-privacy-app [name] -t [template] -p [pm] (with package manager)
+      - npx create-solana-privacy-app [name] -t [template] -y (non-interactive)
+      - npx create-solana-privacy-app --help (show help)
+      - npx create-solana-privacy-app --version (show version)
+    </cli_commands>
+
+    <cli_options>
+      - --template, -t: privacy-cash | light-protocol | arcium | full-stack
+      - --package-manager, -p: npm | yarn | pnpm (default: npm)
+      - --skip-install, -s: Skip dependency installation
+      - --skip-git: Skip git initialization
+      - --helius-key: Helius API key for .env
+      - --yes, -y: Skip all prompts, use defaults
+      - --help, -h: Show help
+      - --version, -v: Show version
+    </cli_options>
+  </api_endpoints_summary>
+
+  <ui_layout>
+    <cli_output>
+      1. ASCII banner (PRIVKIT in block letters)
+      2. Tagline "Zero to private in one command"
+      3. Interactive prompts (if not -y flag)
+      4. Spinner during operations
+      5. Success message with next steps
+      6. Command examples (npm run dev, npm run test, etc.)
+    </cli_output>
+
+    <landing_page_layout>
+      <hero>
+        - Large heading: "Zero to private in one command"
+        - Subheading explaining the value proposition
+        - Terminal window showing animated CLI demo
+        - "npx create-solana-privacy-app" with copy button
+        - CTA button linking to GitHub
+      </hero>
+
+      <template_showcase>
+        - Grid of 4 template cards
+        - Each card: icon, name, description, key features
+        - Hover effect with slight lift and glow
+        - Click links to template section or GitHub
+      </template_showcase>
+
+      <features>
+        - Grid of feature cards
+        - Icons: shield (privacy), zap (fast), package (npm), code (typescript)
+        - Brief descriptions of benefits
+      </features>
+
+      <footer>
+        - GitHub link
+        - npm package link
+        - Hackathon bounty badges
+        - MIT license note
+      </footer>
+    </landing_page_layout>
+  </ui_layout>
+
+  <design_system>
+    <overview>
+      Developer-focused dark theme aesthetic inspired by modern CLI tools and terminal interfaces.
+      Clean, professional, and trustworthy design that appeals to blockchain developers.
+      High contrast for readability with accent colors for important elements.
+    </overview>
+
+    <color_palette>
+      <approach>Dark-first with vibrant accents for developer appeal</approach>
+      <theme_default>dark</theme_default>
+      <theme_support>dark_only</theme_support>
+
+      <colors>
+        - Background: #0a0a0b (near black)
+        - Surface: #18181b (zinc-900)
+        - Border: #27272a (zinc-800)
+        - Text Primary: #fafafa (zinc-50)
+        - Text Secondary: #a1a1aa (zinc-400)
+        - Text Muted: #71717a (zinc-500)
+
+        - Primary (Privacy Cash): #3b82f6 (blue-500)
+        - Primary Hover: #2563eb (blue-600)
+
+        - Secondary (Light Protocol): #8b5cf6 (violet-500)
+        - Secondary Hover: #7c3aed (violet-600)
+
+        - Accent (Arcium): #f97316 (orange-500)
+        - Accent Hover: #ea580c (orange-600)
+
+        - Success: #10b981 (emerald-500)
+        - Error: #ef4444 (red-500)
+        - Warning: #f59e0b (amber-500)
+
+        - Terminal Green: #22c55e (green-500)
+        - Terminal Cursor: #22c55e with blink animation
+      </colors>
+    </color_palette>
+
+    <typography>
+      <fonts>
+        - Display/Headings: Inter (clean, modern)
+        - Body: Inter (readable)
+        - Code/CLI: JetBrains Mono (monospace, ligatures)
+        - Terminal Demo: JetBrains Mono
+      </fonts>
+      <hierarchy>
+        - H1: text-5xl font-bold (landing hero)
+        - H2: text-3xl font-semibold (section headings)
+        - H3: text-xl font-medium (card titles)
+        - Body: text-base (16px)
+        - Small: text-sm (14px)
+        - Code: text-sm font-mono
+      </hierarchy>
+    </typography>
+
+    <components>
+      <buttons>
+        - Primary: bg-primary text-white rounded-lg px-6 py-3 hover:bg-primary/90
+        - Secondary: border-2 border-primary text-primary rounded-lg hover:bg-primary hover:text-white
+        - Ghost: text-zinc-400 hover:text-white hover:bg-zinc-800
+        - Copy button: icon-only with tooltip
+      </buttons>
+
+      <cards>
+        - Background: bg-surface (zinc-900)
+        - Border: border border-border (zinc-800)
+        - Rounded: rounded-xl (12px)
+        - Hover: hover:border-primary/50 transition-all
+        - Padding: p-6
+      </cards>
+
+      <terminal_window>
+        - Background: #1a1a1a
+        - Border: border border-zinc-700 rounded-lg
+        - Header: flex with red/yellow/green dots
+        - Content: font-mono text-sm
+        - Cursor: blinking green block
+        - Typing animation: character by character
+      </terminal_window>
+
+      <inputs>
+        - Background: bg-zinc-800
+        - Border: border border-zinc-700 focus:border-primary
+        - Rounded: rounded-lg
+        - Text: text-white
+        - Placeholder: text-zinc-500
+      </inputs>
+
+      <badges>
+        - Background: bg-primary/10
+        - Text: text-primary
+        - Border: border border-primary/20
+        - Rounded: rounded-full
+        - Padding: px-3 py-1 text-sm
+      </badges>
+    </components>
+
+    <animations>
+      <approach>Purposeful animations that enhance developer experience without being distracting</approach>
+      <timing>
+        - Quick: 150ms (hovers, toggles)
+        - Standard: 300ms (modals, dropdowns)
+        - Typing: 50ms per character (terminal demo)
+        - Cursor blink: 1s infinite
+      </timing>
+      <effects>
+        - Card hover: translateY(-4px) + shadow increase
+        - Button hover: opacity change
+        - Terminal typing: character reveal animation
+        - Fade in: opacity 0 to 1 on scroll
+        - Copy feedback: checkmark icon swap
+      </effects>
+    </animations>
+
+    <layout>
+      <landing_page>
+        - Max width: max-w-6xl mx-auto
+        - Padding: px-4 sm:px-6 lg:px-8
+        - Section spacing: py-16 sm:py-24
+        - Grid: grid-cols-1 md:grid-cols-2 lg:grid-cols-4
+      </landing_page>
+      <responsive>
+        - Mobile (&lt;640px): Single column, stacked elements
+        - Tablet (640-1024px): 2 columns for cards
+        - Desktop (&gt;1024px): Full layout, 4 columns for templates
+      </responsive>
+    </layout>
+
+    <unique_elements>
+      <terminal_demo>
+        Animated terminal window showing the CLI in action:
+        1. Types "npx create-solana-privacy-app my-app"
+        2. Shows ASCII banner appearing
+        3. Shows prompts being answered
+        4. Shows spinner and success message
+        Loop or pause at end
+      </terminal_demo>
+
+      <copy_button>
+        Click to copy "npx create-solana-privacy-app"
+        Shows checkmark briefly after copy
+        Tooltip on hover "Copy to clipboard"
+      </copy_button>
+
+      <bounty_badges>
+        Row of badges showing prize targets:
+        - "Privacy Tooling $15k"
+        - "Quicknode $3k"
+        - "Helius $5k"
+        - "Aztec $2.5k"
+      </bounty_badges>
+    </unique_elements>
+  </design_system>
+
+  <key_interactions>
+    <cli_flow>
+      1. User runs npx create-solana-privacy-app
+      2. CLI displays ASCII banner
+      3. CLI prompts for project name (validates npm package name rules)
+      4. CLI prompts for template selection (4 options with descriptions)
+      5. CLI prompts for package manager (npm/yarn/pnpm)
+      6. CLI prompts for Helius API key (masked input)
+      7. CLI prompts for git initialization (yes/no)
+      8. CLI shows spinner "Creating project structure"
+      9. CLI copies and processes template files
+      10. CLI shows spinner "Installing dependencies"
+      11. CLI runs npm/yarn/pnpm install
+      12. CLI shows spinner "Initializing git repository"
+      13. CLI runs git init and initial commit
+      14. CLI shows success message with next steps
+      15. User runs cd project-name && npm run dev
+    </cli_flow>
+
+    <landing_page_flow>
+      1. User lands on page, sees hero with terminal demo
+      2. Terminal demo auto-plays showing CLI in action
+      3. User clicks copy button to copy npx command
+      4. User scrolls to see template options
+      5. User hovers on template cards to see details
+      6. User scrolls to features section
+      7. User clicks GitHub link to view source
+      8. User runs copied command in their terminal
+    </landing_page_flow>
+  </key_interactions>
+
+  <implementation_steps>
+    <step number="1">
+      <title>Project Structure Setup</title>
+      <tasks>
+        - Create monorepo directory structure
+        - Initialize root package.json
+        - Create CLI package structure (packages/cli/)
+        - Create landing page structure (apps/web/)
+        - Set up TypeScript configs
+        - Configure tsup for CLI build
+        - Configure vitest for testing
+      </tasks>
+    </step>
+
+    <step number="2">
+      <title>CLI Core Implementation</title>
+      <tasks>
+        - Create bin/create-solana-privacy-app.js entry point
+        - Implement src/index.ts with Commander setup
+        - Build interactive prompts with @inquirer/prompts
+        - Create logger utilities (chalk banner, ora spinners)
+        - Implement validation utilities (zod schemas)
+        - Build fs utilities for file operations
+        - Implement package manager detection
+      </tasks>
+    </step>
+
+    <step number="3">
+      <title>Generator Engine</title>
+      <tasks>
+        - Create src/generator.ts
+        - Implement template copying logic
+        - Build Handlebars processing for .hbs files
+        - Add dependency installation execution
+        - Add git initialization
+        - Implement error handling for each step
+      </tasks>
+    </step>
+
+    <step number="4">
+      <title>Privacy Cash Template</title>
+      <tasks>
+        - Create templates/privacy-cash/template.json
+        - Create package.json.hbs with dependencies
+        - Create .env.example.hbs with Helius key placeholder
+        - Create Next.js app files (layout, page, providers)
+        - Create privacy-cash.ts SDK wrapper
+        - Create demo page with Shield/Withdraw/Balance UI
+        - Create test file
+        - Create deploy.ts script
+      </tasks>
+    </step>
+
+    <step number="5">
+      <title>Light Protocol Template</title>
+      <tasks>
+        - Create templates/light-protocol/template.json
+        - Create package.json.hbs with Light Protocol deps
+        - Create light-protocol.ts SDK wrapper
+        - Create demo page with Mint/Transfer/Balances UI
+        - Implement Helius RPC requirement messaging
+        - Create test file with mocks
+        - Create deploy.ts script
+      </tasks>
+    </step>
+
+    <step number="6">
+      <title>Arcium Template</title>
+      <tasks>
+        - Create templates/arcium/template.json
+        - Create package.json.hbs with Arcium + Anchor deps
+        - Create arcium.ts client wrapper
+        - Create educational demo page
+        - Include use case examples in UI
+        - Create test file
+        - Create deploy.ts script
+      </tasks>
+    </step>
+
+    <step number="7">
+      <title>Full-Stack Template</title>
+      <tasks>
+        - Create templates/full-stack/template.json
+        - Copy all three SDK wrappers
+        - Create unified.ts abstraction layer
+        - Create index.ts exporting all modules
+        - Create comparison page with provider selection
+        - Create SDK comparison table
+        - Create test file for unified layer
+      </tasks>
+    </step>
+
+    <step number="8">
+      <title>CLI Testing</title>
+      <tasks>
+        - Write cli.test.ts for argument parsing
+        - Write validation.test.ts for input validation
+        - Write generator.test.ts with mocked fs
+        - Write templates.test.ts for template integrity
+        - Ensure all tests pass
+        - Test CLI locally with npm link
+      </tasks>
+    </step>
+
+    <step number="9">
+      <title>Landing Page Structure</title>
+      <tasks>
+        - Initialize Next.js 14 app in apps/web
+        - Set up Tailwind CSS with custom config
+        - Create layout.tsx with metadata
+        - Create globals.css with custom styles
+        - Set up font imports (Inter, JetBrains Mono)
+      </tasks>
+    </step>
+
+    <step number="10">
+      <title>Landing Page Components</title>
+      <tasks>
+        - Build Hero.tsx with headline and subtext
+        - Build TerminalDemo.tsx with typing animation
+        - Build CopyButton.tsx with clipboard API
+        - Build TemplateShowcase.tsx with 4 cards
+        - Build Features.tsx grid
+        - Build Footer.tsx with links and badges
+      </tasks>
+    </step>
+
+    <step number="11">
+      <title>Landing Page Assembly</title>
+      <tasks>
+        - Assemble page.tsx with all components
+        - Implement responsive design
+        - Add animations with Framer Motion
+        - Test on mobile/tablet/desktop viewports
+        - Optimize for performance
+      </tasks>
+    </step>
+
+    <step number="12">
+      <title>CI/CD Setup</title>
+      <tasks>
+        - Create .github/workflows/ci.yml
+        - Test on Node 18, 20, 22
+        - Run lint, typecheck, test, build
+        - Test CLI generation in CI
+        - Create .github/workflows/publish.yml for npm release
+      </tasks>
+    </step>
+
+    <step number="13">
+      <title>Documentation</title>
+      <tasks>
+        - Write comprehensive README.md
+        - Create CONTRIBUTING.md
+        - Add LICENSE (MIT)
+        - Create .npmignore
+        - Add usage examples and screenshots
+      </tasks>
+    </step>
+
+    <step number="14">
+      <title>Final Polish</title>
+      <tasks>
+        - Test all 4 templates end-to-end
+        - Verify generated projects build and run
+        - Test npm publish dry-run
+        - Final landing page review
+        - Performance optimization
+        - Accessibility check
+      </tasks>
+    </step>
+  </implementation_steps>
+
+  <success_criteria>
+    <functionality>
+      - npx create-solana-privacy-app works when published
+      - All CLI flags function correctly
+      - All 4 templates generate working projects
+      - Generated projects run npm run dev successfully
+      - Generated projects pass npm run test
+      - Landing page loads and displays correctly
+    </functionality>
+
+    <hackathon_requirements>
+      - Privacy tooling focus (CLI scaffolding tool)
+      - Open-source with MIT license
+      - Helius integration in all templates
+      - Quicknode-compatible (open-source tooling)
+      - Non-financial use case (dev tooling, not DeFi)
+      - Well-documented with README
+      - Demo video ready (landing page + CLI demo)
+    </hackathon_requirements>
+
+    <technical_quality>
+      - TypeScript throughout (strict mode)
+      - ESM modules (no CommonJS)
+      - Clean code structure
+      - Proper error handling
+      - All tests passing
+      - No console errors
+    </technical_quality>
+
+    <design_polish>
+      - Landing page loads fast (&lt;2s)
+      - Mobile responsive
+      - Animations smooth (60fps)
+      - Terminal demo engaging
+      - Professional appearance
+      - Clear value proposition
+    </design_polish>
+
+    <user_experience>
+      - CLI intuitive to use
+      - Error messages helpful
+      - Success feedback clear
+      - Next steps obvious
+      - Documentation complete
+    </user_experience>
+  </success_criteria>
+
+  <source_specification>
+    The complete implementation details including all template file contents are in:
+    /Users/mujeeb/Downloads/PRIVKIT_COMPLETE_SPEC_V3.md
+
+    This file contains:
+    - Exact package.json contents for CLI and templates
+    - All TypeScript source code for CLI utilities
+    - All template files (75+ files total)
+    - Test implementations
+    - CI/CD workflow files
+    - Documentation content
+
+    Use this as the primary source of truth for exact implementations.
+    The spec should be followed as a blueprint but improvements to fix bugs
+    or enhance patterns are encouraged.
+  </source_specification>
+</project_specification>
