@@ -52,20 +52,18 @@ HELIUS_API_KEY=${config.heliusKey}
     // Initialize git
     if (!config.skipGit) {
       spinner.start('Initializing git repository');
-      initGit(targetDir);
-      spinner.succeed('Initialized git repository');
+      const gitInitialized = initGit(targetDir);
+      if (gitInitialized) {
+        spinner.succeed('Initialized git repository');
+      } else {
+        spinner.warn('Skipped git initialization (git not available)');
+      }
     }
 
   } catch (error) {
     spinner.fail('Failed');
-    // Clean up partial directory on error
-    if (fs.existsSync(targetDir)) {
-      try {
-        await fs.remove(targetDir);
-      } catch {
-        // Ignore cleanup errors
-      }
-    }
+    // Don't clean up - keep partial state for debugging
+    // The user can inspect the files and run 'npm install' manually if needed
     throw error;
   }
 }
@@ -120,7 +118,7 @@ async function installDependencies(
   });
 }
 
-function initGit(targetDir: string): void {
+function initGit(targetDir: string): boolean {
   try {
     execSync('git init', { cwd: targetDir, stdio: 'pipe' });
     execSync('git add -A', { cwd: targetDir, stdio: 'pipe' });
@@ -128,7 +126,9 @@ function initGit(targetDir: string): void {
       cwd: targetDir,
       stdio: 'pipe'
     });
+    return true;
   } catch {
     // Git might not be installed, that's okay
+    return false;
   }
 }

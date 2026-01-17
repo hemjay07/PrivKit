@@ -3,7 +3,7 @@ import { input, select, password, confirm } from '@inquirer/prompts';
 import { createProject } from './generator.js';
 import { validateProjectName } from './utils/validation.js';
 import { logger } from './utils/logger.js';
-import { templates } from './templates.js';
+import { templates, getTemplateConfig, checkNodeVersion } from './templates.js';
 import { readFileSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
@@ -123,6 +123,30 @@ export async function run(): Promise<void> {
           logger.error(`Invalid template: ${config.template}`);
           logger.info(`Available templates: ${templates.map(t => t.name).join(', ')}`);
           process.exit(1);
+        }
+
+        // Validate package manager
+        const validPackageManagers = ['npm', 'yarn', 'pnpm'];
+        if (!validPackageManagers.includes(config.packageManager)) {
+          logger.error(`Invalid package manager: ${config.packageManager}`);
+          logger.info(`Available options: ${validPackageManagers.join(', ')}`);
+          process.exit(1);
+        }
+
+        // Check Node.js version requirement
+        const templateConfig = getTemplateConfig(config.template);
+        if (templateConfig.nodeVersion) {
+          const versionCheck = checkNodeVersion(templateConfig.nodeVersion);
+          if (!versionCheck.compatible) {
+            logger.warn(
+              `Node.js ${templateConfig.nodeVersion} is required for ${config.template} template. ` +
+              `You are running ${versionCheck.currentVersion}.`
+            );
+            logger.info(
+              `The generated project may not work correctly. ` +
+              `Please upgrade Node.js: https://nodejs.org/`
+            );
+          }
         }
 
         await createProject(config);

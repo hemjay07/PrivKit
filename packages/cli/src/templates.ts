@@ -57,3 +57,22 @@ export function getTemplateConfig(templateName: string): TemplateConfig {
   const content = readFileSync(configPath, 'utf-8');
   return JSON.parse(content);
 }
+
+export function checkNodeVersion(requiredVersion: string): {
+  compatible: boolean;
+  currentVersion: string;
+  requiredVersion: string;
+} {
+  const currentVersion = process.version.replace('v', '');
+  const currentMajor = parseInt(currentVersion.split('.')[0], 10);
+
+  // Parse required version (e.g., ">=24.0.0" -> 24)
+  const match = requiredVersion.match(/(\d+)/);
+  const requiredMajor = match ? parseInt(match[1], 10) : 0;
+
+  return {
+    compatible: currentMajor >= requiredMajor,
+    currentVersion: `v${currentVersion}`,
+    requiredVersion
+  };
+}
