@@ -54,8 +54,29 @@ export function getTemplateDir(templateName: string): string {
 export function getTemplateConfig(templateName: string): TemplateConfig {
   const templateDir = getTemplateDir(templateName);
   const configPath = join(templateDir, 'template.json');
-  const content = readFileSync(configPath, 'utf-8');
-  return JSON.parse(content);
+
+  let content: string;
+  try {
+    content = readFileSync(configPath, 'utf-8');
+  } catch (error) {
+    throw new Error(
+      `Template "${templateName}" not found. ` +
+      `Your installation may be corrupted. ` +
+      `Try reinstalling: npm install -g create-solana-privacy-app`
+    );
+  }
+
+  try {
+    return JSON.parse(content);
+  } catch (error) {
+    const parseError = error as SyntaxError;
+    throw new Error(
+      `Invalid JSON in template "${templateName}" configuration. ` +
+      `Parse error: ${parseError.message}. ` +
+      `Your installation may be corrupted. ` +
+      `Try reinstalling: npm install -g create-solana-privacy-app`
+    );
+  }
 }
 
 export function checkNodeVersion(requiredVersion: string): {

@@ -66,8 +66,14 @@ HELIUS_API_KEY=${config.heliusKey}
 
   } catch (error) {
     spinner.fail('Failed');
-    // Don't clean up - keep partial state for debugging
-    // The user can inspect the files and run 'npm install' manually if needed
+    // Clean up partial directory on error
+    try {
+      if (fs.existsSync(targetDir)) {
+        await fs.remove(targetDir);
+      }
+    } catch {
+      // Ignore cleanup errors - best effort
+    }
     throw error;
   }
 }
