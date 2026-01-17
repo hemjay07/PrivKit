@@ -18,7 +18,11 @@ export async function createProject(config: ProjectConfig): Promise<void> {
 
   // Check if template exists
   if (!fs.existsSync(filesDir)) {
-    throw new Error(`Template "${config.template}" not found at ${filesDir}`);
+    throw new Error(
+      `Template "${config.template}" not found. ` +
+      `Your installation may be corrupted. ` +
+      `Try reinstalling: npm install -g create-solana-privacy-app`
+    );
   }
 
   const spinner = logger.spinner('Creating project structure');
