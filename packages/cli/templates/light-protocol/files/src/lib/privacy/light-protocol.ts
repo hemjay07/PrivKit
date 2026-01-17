@@ -95,10 +95,12 @@ export async function getCompressedBalances(
   rpc: Rpc,
   owner: PublicKey
 ): Promise<Array<{ mint: string; balance: number }>> {
-  const balances = await rpc.getCompressedTokenBalancesByOwnerV2(owner);
+  const result = await rpc.getCompressedTokenBalancesByOwnerV2(owner);
 
-  return balances.items.map(item => ({
+  // Result is WithContext<WithCursor<TokenBalance[]>>
+  // Access via result.value.items
+  return result.value.items.map((item: { mint: PublicKey; balance: { toString: () => string } }) => ({
     mint: item.mint.toBase58(),
-    balance: Number(item.balance)
+    balance: Number(item.balance.toString())
   }));
 }
