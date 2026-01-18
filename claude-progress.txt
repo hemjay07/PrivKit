@@ -13,6 +13,46 @@
 
 ---
 
+## Session 27 (Coding Agent)
+### Date: 2026-01-18
+
+### Summary
+Verification session and intervention setup - confirmed project remains at **99.7% completion (334/335 features passing)**. Fixed orphaned intervention reference and created new intervention for Vercel deployment.
+
+### Actions Taken
+1. **Cleared orphaned intervention reference**: Feature #167 had `blocked_by_intervention_id=51` but no interventions table existed
+2. **Created new intervention (ID: 52)**: Properly requested human action for Vercel deployment
+3. **Full verification run**: Confirmed all CLI and landing page functionality
+
+### Verification Performed
+1. **CLI Build**: ✓ Builds successfully (`tsup` output: 14.63 KB)
+2. **CLI Version**: ✓ Returns 1.0.0 correctly
+3. **CLI Help**: ✓ Shows all options (--template, --package-manager, --skip-install, etc.)
+4. **Landing Page Build**: ✓ Builds successfully (4 static pages, 56.2 kB main page)
+5. **CLI Tests**: ✓ All 16 tests pass (2 test files: validation.test.ts, generator.test.ts)
+6. **CLI Project Generation**: ✓ Privacy-cash template generates complete project with all files
+
+### Smart Regression Testing
+- Skipped per adaptive frequency (final stage, 100% completion ratio)
+- Strategy: `final_skipped`
+
+### Status
+- **334/335 features passing (99.7%)**
+- **1 feature blocked**: Feature #167 "HTTPS redirect works in production" (Intervention ID: 52)
+- **Project fully functional**: CLI generates projects, landing page builds completely
+
+### Human Intervention Required (Intervention ID: 52)
+Feature #167 requires Vercel deployment:
+1. Login to Vercel: `npx vercel login`
+2. Deploy from apps/web: `npx vercel`
+3. Access via HTTP and verify redirect to HTTPS
+4. Check for mixed content warnings
+5. Report the production URL
+
+Once deployment is verified, mark Feature #167 as passing to reach 100%.
+
+---
+
 ## Session 26 (Coding Agent)
 ### Date: 2026-01-18
 
