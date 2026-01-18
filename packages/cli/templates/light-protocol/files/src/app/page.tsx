@@ -70,7 +70,7 @@ export default function Home() {
             ZK Compression for Solana - up to 5000x cheaper state
           </p>
           <p className="text-sm text-amber-500 mt-2">
-            Requires Helius RPC (standard RPC won't work)
+            Requires Helius RPC (standard RPC will not work)
           </p>
         </div>
 
