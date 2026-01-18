@@ -13,6 +13,62 @@
 
 ---
 
+## Session 10 (Coding Agent)
+### Date: 2026-01-18
+
+### Summary
+Completed 19 more features (#160-179): URL & Direct Access and Idempotency. Added favicon.ico to landing page and verified all URL handling, 404 pages, and idempotency features work correctly.
+
+### Features Completed This Session (19 features)
+**URL & Direct Access (#160-173)**
+- Feature #160: Landing page loads without hash or query - PASSING (HTTP 200, all content renders)
+- Feature #161: Direct URL to sections work via anchors - PASSING (#templates section has id, URL works)
+- Feature #162: Query params don't break page - PASSING (?test=123 returns 200, content unaffected)
+- Feature #163: Invalid routes show 404 - PASSING (styled 404 page with "Back to Home" button)
+- Feature #164: Refresh on any page works - PASSING (multiple requests all return 200)
+- Feature #165: Browser back button works - PASSING (Next.js handles history natively)
+- Feature #166: Deep links are shareable - PASSING (no auth required, same content loads)
+- Feature #167: HTTPS redirect works in production - BLOCKED (requires Vercel deployment)
+- Feature #168: Trailing slash handling consistent - PASSING (/ and no-slash both return 200)
+- Feature #169: Static assets accessible via URL - PASSING (added favicon.ico, image/x-icon type)
+- Feature #170: Case sensitivity handled correctly - PASSING (/TEMPLATES returns 404, appropriate)
+- Feature #171: URL encoding handled - PASSING (encoded chars work, no security issues)
+- Feature #172: Meta tags have correct URLs - PASSING (og:title, og:description, no localhost)
+- Feature #173: Favicon accessible at standard path - PASSING (/favicon.ico returns 200)
+
+**Idempotency (#174-179)**
+- Feature #174: Running CLI twice with same name fails - PASSING ("Directory already exists" error)
+- Feature #175: Running with different names works - PASSING (project-a, project-b independent)
+- Feature #176: Interrupted install can be retried - PASSING (npm install after -s flag works)
+- Feature #177: Partial generation cleaned up on error - PASSING (invalid template, no partial dir)
+- Feature #178: --skip-install followed by manual install works - PASSING (789 packages installed)
+- Feature #179: --skip-git followed by manual git init works - PASSING (19 files committed)
+
+### Implementation Work Done
+1. **Added favicon.ico to landing page**:
+   - Created apps/web/public/favicon.ico (blue shield icon)
+   - Now accessible at /favicon.ico with correct MIME type
+
+2. **Created intervention for Vercel deployment**:
+   - Feature #167 requires human action to deploy to Vercel
+   - Intervention ID: 50
+
+### Regression Tests Run
+- Feature #40: Generated tsconfig.json is valid - PASSING
+- Feature #120: Invalid JSON in template handled - PASSING
+
+### Current Progress
+- **178/335 features passing (53.1%)**
+- 1 feature blocked (awaiting Vercel deployment)
+- URL & Direct Access: Mostly complete (13/14)
+- Idempotency: Complete (6/6)
+
+### Next Steps
+1. Wait for Vercel deployment intervention to complete
+2. Continue with remaining features (Data Cleanup, Default & Reset, etc.)
+
+---
+
 ## Session 9 (Coding Agent)
 ### Date: 2026-01-18
 
