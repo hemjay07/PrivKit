@@ -198,7 +198,7 @@ export function TemplatePreview() {
   return (
     <section className="px-4 py-20 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-2xl font-bold text-center mb-4">See What You Get</h2>
+        <h2 className="text-3xl font-bold text-center mb-4">See What You Get</h2>
         <p className="text-zinc-400 text-center mb-8">
           Preview the generated file structure before running the CLI.
         </p>

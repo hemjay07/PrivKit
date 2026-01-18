@@ -105,7 +105,7 @@ export function TemplateWizard() {
       <div className="max-w-2xl mx-auto text-center">
         {step === 'start' && (
           <>
-            <h2 className="text-2xl font-bold mb-4">Not Sure Which Template?</h2>
+            <h2 className="text-3xl font-bold mb-4">Not Sure Which Template?</h2>
             <p className="text-zinc-400 mb-8">
               Answer two quick questions and we&apos;ll recommend the best template for your project.
             </p>

@@ -59,7 +59,7 @@ export function QuickStart() {
   return (
     <section className="px-4 py-20 sm:px-6 lg:px-8 bg-surface/30" id="quickstart">
       <div className="max-w-3xl mx-auto">
-        <h2 className="text-2xl font-bold text-center mb-2">Start in 30 Seconds</h2>
+        <h2 className="text-3xl font-bold text-center mb-2">Start in 30 Seconds</h2>
         <p className="text-zinc-400 text-center mb-10">
           Three commands. That&apos;s all it takes.
         </p>

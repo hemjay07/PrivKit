@@ -140,7 +140,7 @@ export function SDKComparisonMatrix() {
   return (
     <section className="px-4 py-20 sm:px-6 lg:px-8 bg-surface/30">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-2xl font-bold text-center mb-4">SDK Feature Comparison</h2>
+        <h2 className="text-3xl font-bold text-center mb-4">SDK Feature Comparison</h2>
         <p className="text-zinc-400 text-center mb-8">
           Compare capabilities across all privacy templates.
         </p>

@@ -208,9 +208,9 @@ export function TerminalDemo() {
         </div>
 
         {/* Terminal window */}
-        <div className="bg-[#1a1a1a] rounded-lg border border-zinc-700 overflow-hidden shadow-2xl" aria-hidden="true">
+        <div className="bg-surface rounded-lg border border-border overflow-hidden shadow-2xl" aria-hidden="true">
           {/* Terminal header */}
-          <div className="flex items-center gap-2 px-4 py-3 bg-zinc-800/50 border-b border-zinc-700">
+          <div className="flex items-center gap-2 px-4 py-3 bg-zinc-800/50 border-b border-border">
             <div className="w-3 h-3 rounded-full bg-red-500" />
             <div className="w-3 h-3 rounded-full bg-yellow-500" />
             <div className="w-3 h-3 rounded-full bg-green-500" />

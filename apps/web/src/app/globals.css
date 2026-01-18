@@ -2,6 +2,75 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+ * PrivKit Design System
+ * =====================
+ *
+ * TYPOGRAPHY SCALE
+ * ----------------
+ * Hero headline: text-4xl sm:text-5xl lg:text-6xl font-bold
+ * Section titles: text-3xl font-bold
+ * Card/Subsection titles: text-xl or text-2xl font-semibold
+ * Body: text-base (default)
+ * Small text: text-sm
+ * Tiny text: text-xs
+ *
+ * Font Weights:
+ * - font-bold (700): Main headings
+ * - font-semibold (600): Subheadings, card titles
+ * - font-medium (500): Emphasized text
+ * - font-normal (400): Body text
+ *
+ * Font Families:
+ * - Inter (font-sans): All UI text
+ * - JetBrains Mono (font-mono): Code/CLI only
+ *
+ * ICON SYSTEM
+ * -----------
+ * Style: Heroicons outline style (strokeWidth={2})
+ * ViewBox: viewBox="0 0 24 24"
+ *
+ * Sizes:
+ * - w-4 h-4: Inline icons, text accompaniment
+ * - w-5 h-5: Button icons, medium emphasis
+ * - w-6 h-6: Feature icons, section icons
+ * - w-8 h-8: Large template/brand icons
+ * - w-12 h-12: Icon containers (with bg)
+ *
+ * All icons use fill="none" stroke="currentColor" unless filled.
+ *
+ * COLOR PALETTE
+ * -------------
+ *
+ * Base Colors:
+ * - background (#0a0a0b): Page background, darkest
+ * - surface (#18181b): Cards, modals, elevated elements
+ * - border (#27272a): Dividers, card borders
+ * - foreground (#fafafa): Primary text
+ *
+ * Brand Colors:
+ * - primary (#3b82f6): Blue - Privacy Cash, main actions
+ * - secondary (#8b5cf6): Purple - Light Protocol
+ * - accent (#f97316): Orange - Arcium
+ * - success (#10b981): Green - Full Stack, confirmations
+ *
+ * Semantic Colors:
+ * - error (#ef4444): Error states
+ * - terminal-green (#22c55e): CLI/terminal elements ONLY
+ *
+ * Text Colors (zinc scale):
+ * - zinc-200: Headings
+ * - zinc-300: Body text
+ * - zinc-400: Secondary text
+ * - zinc-500: Muted/helper text
+ * - zinc-600: Disabled
+ *
+ * Usage Rules:
+ * 1. terminal-green is ONLY for CLI commands and terminal UI
+ * 2. Use theme colors (bg-surface, border-border) instead of hardcoded values
+ * 3. Template colors are consistent: primary=Privacy Cash, secondary=Light, accent=Arcium, success=Full Stack
+ */
+
 :root {
   --background: #0a0a0b;
   --foreground: #fafafa;
@@ -29,16 +98,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #18181b;
+  background: var(--surface);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #3f3f46;
+  background: var(--border);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #52525b;
+  background: #3f3f46; /* zinc-700 - slightly lighter than border */
 }
 
 /* Terminal cursor animation */
@@ -96,7 +165,15 @@ body {
   color: var(--foreground);
 }
 
-/* Card hover effect */
+/*
+ * Card Styles
+ * -----------
+ * Standard card: bg-surface border border-border rounded-lg p-6
+ * Large card: rounded-xl instead of rounded-lg
+ * Hover state: hover:border-zinc-600 or use .card-hover class
+ */
+
+/* Card hover effect with lift */
 .card-hover {
   transition: all 200ms cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -107,6 +184,19 @@ body {
     border-color: rgba(59, 130, 246, 0.5);
     box-shadow: 0 10px 40px -10px rgba(59, 130, 246, 0.2);
   }
+}
+
+/* Standard card base */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  transition: border-color 150ms ease;
+}
+
+.card:hover {
+  border-color: #3f3f46;
 }
 
 /* Remove iOS tap highlight */
