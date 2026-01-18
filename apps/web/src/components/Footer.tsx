@@ -6,9 +6,16 @@ export function Footer() {
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Logo and tagline */}
-          <div className="text-center md:text-left">
-            <div className="font-bold text-xl mb-1">PrivKit</div>
-            <p className="text-sm text-zinc-500">Zero to private in one command</p>
+          <div className="flex items-center gap-3 text-center md:text-left">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center flex-shrink-0">
+              <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 1a4 4 0 0 0-4 4v3H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2h-2V5a4 4 0 0 0-4-4zm0 2a2 2 0 0 1 2 2v3h-4V5a2 2 0 0 1 2-2z" />
+              </svg>
+            </div>
+            <div>
+              <div className="font-bold text-xl">PrivKit</div>
+              <p className="text-sm text-zinc-500">Zero to private in one command</p>
+            </div>
           </div>
 
           {/* Links */}

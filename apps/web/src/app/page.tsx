@@ -11,10 +11,16 @@ import { ComparisonTable } from '@/components/ComparisonTable';
 import { TemplateWizard } from '@/components/TemplateWizard';
 import { TemplatePreview } from '@/components/TemplatePreview';
 import { QuickStart } from '@/components/QuickStart';
+import { SDKComparisonMatrix } from '@/components/SDKComparisonMatrix';
+import { FAQ } from '@/components/FAQ';
+import { Ecosystem } from '@/components/Ecosystem';
+import { Changelog } from '@/components/Changelog';
+import { Header } from '@/components/Header';
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-background">
+      <Header />
       <StickyNav />
       <Hero />
       <QuickStart />
@@ -23,8 +29,12 @@ export default function Home() {
       <TemplateWizard />
       <TemplateShowcase />
       <TemplatePreview />
+      <SDKComparisonMatrix />
       <Features />
+      <Ecosystem />
       <ComparisonTable />
+      <FAQ />
+      <Changelog />
       <Footer />
     </main>
   );

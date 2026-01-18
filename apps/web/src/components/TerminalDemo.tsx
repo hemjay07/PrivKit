@@ -181,7 +181,7 @@ export function TerminalDemo() {
   };
 
   return (
-    <section id="terminal" ref={sectionRef} className="px-4 py-16 sm:px-6 lg:px-8" aria-label="Terminal demonstration">
+    <section id="terminal" ref={sectionRef} className="px-4 py-20 sm:px-6 lg:px-8" aria-label="Terminal demonstration">
       <div className="max-w-3xl mx-auto">
         {/* Screen reader description */}
         <p className="sr-only">

@@ -116,10 +116,10 @@ const templateFiles: Record<string, FileNode[]> = {
 };
 
 const templates = [
-  { id: 'privacy-cash', name: 'Privacy Cash', color: 'primary' },
-  { id: 'light-protocol', name: 'Light Protocol', color: 'secondary' },
-  { id: 'arcium', name: 'Arcium', color: 'accent' },
-  { id: 'full-stack', name: 'Full Stack', color: 'success' },
+  { id: 'privacy-cash', name: 'Privacy Cash', color: 'primary', meaning: 'Trust', bg: 'bg-primary/10', border: 'border-primary/30', text: 'text-primary' },
+  { id: 'light-protocol', name: 'Light Protocol', color: 'secondary', meaning: 'Innovation', bg: 'bg-secondary/10', border: 'border-secondary/30', text: 'text-secondary' },
+  { id: 'arcium', name: 'Arcium', color: 'accent', meaning: 'Power', bg: 'bg-accent/10', border: 'border-accent/30', text: 'text-accent' },
+  { id: 'full-stack', name: 'Full Stack', color: 'success', meaning: 'Growth', bg: 'bg-success/10', border: 'border-success/30', text: 'text-success' },
 ];
 
 const badgeStyles = {
@@ -196,7 +196,7 @@ export function TemplatePreview() {
   };
 
   return (
-    <section className="px-4 py-16 sm:px-6 lg:px-8">
+    <section className="px-4 py-20 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-2xl font-bold text-center mb-4">See What You Get</h2>
         <p className="text-zinc-400 text-center mb-8">
@@ -212,25 +212,30 @@ export function TemplatePreview() {
 
         {/* Template tabs */}
         <div className="flex flex-wrap justify-center gap-2 mb-6">
-          {templates.map((template) => (
-            <button
-              key={template.id}
-              onClick={() => handleTemplateChange(template.id)}
-              className={`px-4 py-2 text-sm rounded-lg transition-colors duration-150 ${
-                activeTemplate === template.id
-                  ? 'bg-primary text-white'
-                  : 'bg-surface border border-border text-zinc-400 hover:text-zinc-200 hover:border-zinc-600'
-              }`}
-            >
-              {template.name}
-            </button>
-          ))}
+          {templates.map((template) => {
+            const isActive = activeTemplate === template.id;
+            return (
+              <button
+                key={template.id}
+                onClick={() => handleTemplateChange(template.id)}
+                className={`px-4 py-2 text-sm rounded-lg transition-all duration-150 ${
+                  isActive
+                    ? `${template.bg} ${template.text} border ${template.border}`
+                    : 'bg-surface border border-border text-zinc-400 hover:text-zinc-200 hover:border-zinc-600'
+                }`}
+              >
+                {template.name}
+              </button>
+            );
+          })}
         </div>
 
         {/* File tree */}
-        <div className="bg-surface border border-border rounded-lg p-4 font-mono text-sm">
+        <div className={`bg-surface border rounded-lg p-4 font-mono text-sm transition-colors duration-150 ${
+          templates.find(t => t.id === activeTemplate)?.border || 'border-border'
+        }`}>
           <div className="flex items-center gap-2 pb-3 mb-3 border-b border-border">
-            <span className="text-zinc-400">my-app/</span>
+            <span className={templates.find(t => t.id === activeTemplate)?.text || 'text-zinc-400'}>my-app/</span>
             <span className="text-xs text-zinc-600">
               ({templates.find(t => t.id === activeTemplate)?.name} template)
             </span>

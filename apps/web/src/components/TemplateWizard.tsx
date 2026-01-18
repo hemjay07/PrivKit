@@ -101,7 +101,7 @@ export function TemplateWizard() {
   };
 
   return (
-    <section className="px-4 py-16 sm:px-6 lg:px-8 bg-surface/30">
+    <section className="px-4 py-20 sm:px-6 lg:px-8 bg-surface/30">
       <div className="max-w-2xl mx-auto text-center">
         {step === 'start' && (
           <>

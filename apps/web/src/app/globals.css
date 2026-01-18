@@ -132,3 +132,35 @@ a,
   animation: fadeIn 0.3s ease-out forwards;
   opacity: 0;
 }
+
+/* Global Layout System */
+.section-padding {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 640px) {
+  .section-padding {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Section dividers */
+.section-divider {
+  border-top: 1px solid rgba(39, 39, 42, 0.5);
+}
+
+/* Alternating section backgrounds */
+.section-alt {
+  background: rgba(24, 24, 27, 0.3);
+}

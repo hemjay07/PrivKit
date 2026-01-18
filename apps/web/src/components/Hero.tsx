@@ -3,47 +3,57 @@
 import { CopyButton } from './CopyButton';
 import { GitHubStars } from './GitHubStars';
 import { NpmDownloads } from './NpmDownloads';
+import { ScrollReveal } from './ScrollReveal';
 
 export function Hero() {
   const command = 'npx create-solana-privacy-app';
 
   return (
-    <section id="hero" className="relative px-4 pt-24 pb-16 sm:px-6 lg:px-8">
+    <section id="hero" className="relative px-4 pt-24 pb-20 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto text-center">
         {/* Tagline */}
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-          <span className="gradient-text">Zero to private</span>
-          <br />
-          in one command
-        </h1>
+        <ScrollReveal>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+            <span className="gradient-text">Zero to private</span>
+            <br />
+            in one command
+          </h1>
+        </ScrollReveal>
 
         {/* Description */}
-        <p className="text-lg sm:text-xl text-zinc-400 mb-8 max-w-2xl mx-auto">
-          The <span className="text-white">create-react-app</span> for Solana privacy development.
-          Scaffold complete projects with Privacy Cash, Light Protocol, or Arcium
-          in seconds.
-        </p>
+        <ScrollReveal delay={0.1}>
+          <p className="text-lg sm:text-xl text-zinc-400 mb-8 max-w-2xl mx-auto">
+            The <span className="text-white">create-react-app</span> for Solana privacy development.
+            Scaffold complete projects with Privacy Cash, Light Protocol, or Arcium
+            in seconds.
+          </p>
+        </ScrollReveal>
 
         {/* Command with copy button */}
-        <div className="flex items-center justify-center gap-3 mb-8">
-          <div className="flex items-center bg-surface border border-border rounded-lg px-4 py-3">
-            <code className="font-mono text-terminal-green text-sm sm:text-base">
-              {command}
-            </code>
+        <ScrollReveal delay={0.2}>
+          <div className="flex items-center justify-center gap-3 mb-8">
+            <div className="flex items-center bg-surface border border-border rounded-lg px-4 py-3">
+              <code className="font-mono text-terminal-green text-sm sm:text-base">
+                {command}
+              </code>
+            </div>
+            <CopyButton text={command} />
           </div>
-          <CopyButton text={command} />
-        </div>
+        </ScrollReveal>
 
         {/* Bounty badges */}
-        <div className="flex flex-wrap justify-center gap-3">
-          <Badge text="Privacy Tooling $15k" color="blue" />
-          <Badge text="Helius $5k" color="purple" />
-          <Badge text="Quicknode $3k" color="orange" />
-          <Badge text="Aztec $2.5k" color="green" />
-        </div>
+        <ScrollReveal delay={0.3}>
+          <div className="flex flex-wrap justify-center gap-3">
+            <Badge text="Privacy Tooling $15k" color="blue" />
+            <Badge text="Helius $5k" color="purple" />
+            <Badge text="Quicknode $3k" color="orange" />
+            <Badge text="Aztec $2.5k" color="green" />
+          </div>
+        </ScrollReveal>
 
         {/* GitHub link and stars */}
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+        <ScrollReveal delay={0.4}>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <a
             href="https://github.com/hemjay07/PrivKit"
             target="_blank"
@@ -60,8 +70,9 @@ export function Hero() {
             View on GitHub
           </a>
           <GitHubStars />
-          <NpmDownloads />
-        </div>
+            <NpmDownloads />
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

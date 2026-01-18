@@ -51,7 +51,7 @@ function XIcon() {
 
 export function ComparisonTable() {
   return (
-    <section className="px-4 py-16 sm:px-6 lg:px-8">
+    <section className="px-4 py-20 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-3xl font-bold text-center mb-4">Why Not Just Do It Manually?</h2>
         <p className="text-zinc-400 text-center mb-12 max-w-2xl mx-auto">
