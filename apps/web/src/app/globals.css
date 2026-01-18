@@ -60,6 +60,20 @@ body {
   .cursor-blink {
     animation: none;
   }
+
+  /* Disable transform animations */
+  .card-hover {
+    transition: none;
+  }
+
+  /* Disable all transform and opacity transitions globally */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 /* Gradient text */
@@ -68,6 +82,18 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* Fix text selection on gradient text */
+.gradient-text::selection {
+  -webkit-text-fill-color: var(--foreground);
+  background: var(--primary);
+}
+
+/* Global selection style */
+::selection {
+  background: var(--primary);
+  color: var(--foreground);
 }
 
 /* Card hover effect */

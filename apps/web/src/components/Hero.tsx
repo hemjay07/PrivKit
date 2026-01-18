@@ -72,7 +72,7 @@ function Badge({ text, color }: { text: string; color: 'blue' | 'purple' | 'oran
   };
 
   return (
-    <span className={`px-3 py-1 text-sm rounded-full border ${colors[color]}`}>
+    <span className={`px-3 py-1.5 min-h-[32px] inline-flex items-center text-sm rounded-full border ${colors[color]}`}>
       {text}
     </span>
   );

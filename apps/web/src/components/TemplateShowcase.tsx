@@ -6,6 +6,7 @@ const templates = [
     displayName: 'Privacy Cash',
     description: 'Private transfers with zero-knowledge proofs',
     color: 'blue',
+    recommended: true,
     features: ['SOL & SPL Tokens', 'ZK Proofs', 'Node 24+'],
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -74,11 +75,19 @@ export function TemplateShowcase() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {templates.map((template) => {
             const colors = getColorClasses(template.color);
+            const isRecommended = 'recommended' in template && template.recommended;
             return (
               <div
                 key={template.name}
-                className={`p-6 bg-surface rounded-lg border border-border card-hover ${colors.border}`}
+                className={`relative p-6 bg-surface rounded-lg border card-hover ${colors.border} ${
+                  isRecommended ? 'border-primary/50 ring-1 ring-primary/20' : 'border-border'
+                }`}
               >
+                {isRecommended && (
+                  <span className="absolute -top-3 left-4 px-2 py-0.5 text-xs font-medium bg-primary text-white rounded-full">
+                    Recommended
+                  </span>
+                )}
                 <div className={`w-12 h-12 rounded-lg ${colors.bg} ${colors.text} flex items-center justify-center mb-4`}>
                   {template.icon}
                 </div>
