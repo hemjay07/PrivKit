@@ -1,12 +1,14 @@
 'use client';
 
 import { CopyButton } from './CopyButton';
+import { GitHubStars } from './GitHubStars';
+import { NpmDownloads } from './NpmDownloads';
 
 export function Hero() {
   const command = 'npx create-solana-privacy-app';
 
   return (
-    <section className="relative px-4 pt-24 pb-16 sm:px-6 lg:px-8">
+    <section id="hero" className="relative px-4 pt-24 pb-16 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto text-center">
         {/* Tagline */}
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
@@ -40,15 +42,15 @@ export function Hero() {
           <Badge text="Aztec $2.5k" color="green" />
         </div>
 
-        {/* GitHub link */}
-        <div className="mt-8">
+        {/* GitHub link and stars */}
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <a
             href="https://github.com/hemjay07/PrivKit"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-zinc-400 hover:text-white transition-colors"
+            className="inline-flex items-center gap-2 text-zinc-400 hover:text-white transition-colors duration-150"
           >
-            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path
                 fillRule="evenodd"
                 clipRule="evenodd"
@@ -57,6 +59,8 @@ export function Hero() {
             </svg>
             View on GitHub
           </a>
+          <GitHubStars />
+          <NpmDownloads />
         </div>
       </div>
     </section>

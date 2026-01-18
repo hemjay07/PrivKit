@@ -59,7 +59,7 @@ const features = [
 
 export function Features() {
   return (
-    <section className="px-4 py-16 sm:px-6 lg:px-8 bg-surface/50">
+    <section id="features" className="px-4 py-16 sm:px-6 lg:px-8 bg-surface/50">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl font-bold text-center mb-4">Why PrivKit?</h2>
         <p className="text-zinc-400 text-center mb-12 max-w-2xl mx-auto">

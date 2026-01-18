@@ -23,13 +23,20 @@ const DEMO_LINES = [
   { text: '✔ Installed dependencies', delay: 4500, color: 'green' },
   { text: '✔ Initialized git repository', delay: 5000, color: 'green' },
   { text: '', delay: 5200 },
-  { text: '✔ Success! Created my-app', delay: 5400, color: 'green' },
+  { text: '╭──────────────────────────────────────────────────╮', delay: 5400, color: 'green' },
+  { text: '│  ✔ Success! Created my-app                      │', delay: 5450, color: 'green' },
+  { text: '╰──────────────────────────────────────────────────╯', delay: 5500, color: 'green' },
   { text: '', delay: 5600 },
-  { text: 'Next steps:', delay: 5800 },
-  { text: '  cd my-app', delay: 6000, color: 'cyan' },
-  { text: '  npm run dev', delay: 6200, color: 'cyan' },
-  { text: '', delay: 6400 },
-  { text: 'Happy building! 🛡️', delay: 6600, color: 'dim' },
+  { text: '▸ Start development:', delay: 5800, color: 'dim' },
+  { text: '    cd my-app && npm run dev', delay: 5900, color: 'cyan' },
+  { text: '', delay: 6100 },
+  { text: '▸ Read the docs:', delay: 6200, color: 'dim' },
+  { text: '    https://github.com/hemjay07/PrivKit#readme', delay: 6300, color: 'cyan' },
+  { text: '', delay: 6500 },
+  { text: '▸ Get help:', delay: 6600, color: 'dim' },
+  { text: '    https://github.com/hemjay07/PrivKit/issues', delay: 6700, color: 'cyan' },
+  { text: '', delay: 6900 },
+  { text: 'Happy building with privacy! 🛡️', delay: 7100, color: 'dim' },
 ];
 
 export function TerminalDemo() {
@@ -69,7 +76,7 @@ export function TerminalDemo() {
     // Loop the animation
     const loopTimer = setTimeout(() => {
       setVisibleLines(0);
-    }, 8000);
+    }, 9000);
     timers.push(loopTimer);
 
     return () => {
@@ -93,7 +100,7 @@ export function TerminalDemo() {
   };
 
   return (
-    <section ref={sectionRef} className="px-4 py-16 sm:px-6 lg:px-8" aria-label="Terminal demonstration">
+    <section id="terminal" ref={sectionRef} className="px-4 py-16 sm:px-6 lg:px-8" aria-label="Terminal demonstration">
       <div className="max-w-3xl mx-auto">
         {/* Screen reader description */}
         <p className="sr-only">

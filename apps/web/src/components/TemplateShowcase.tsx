@@ -1,5 +1,8 @@
 'use client';
 
+import { useState } from 'react';
+import { CodePreviewModal, getCodeSnippets } from './CodePreviewModal';
+
 const templates = [
   {
     name: 'privacy-cash',
@@ -53,6 +56,8 @@ const templates = [
 ];
 
 export function TemplateShowcase() {
+  const [previewTemplate, setPreviewTemplate] = useState<string | null>(null);
+
   const getColorClasses = (color: string) => {
     const colors: Record<string, { border: string; text: string; bg: string }> = {
       blue: { border: 'hover:border-primary/50', text: 'text-primary', bg: 'bg-primary/10' },
@@ -64,7 +69,7 @@ export function TemplateShowcase() {
   };
 
   return (
-    <section className="px-4 py-16 sm:px-6 lg:px-8" id="templates">
+    <section className="px-4 py-20 sm:px-6 lg:px-8" id="templates">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl font-bold text-center mb-4">Choose Your Template</h2>
         <p className="text-zinc-400 text-center mb-12 max-w-2xl mx-auto">
@@ -93,7 +98,7 @@ export function TemplateShowcase() {
                 </div>
                 <h3 className="text-lg font-semibold mb-2">{template.displayName}</h3>
                 <p className="text-sm text-zinc-400 mb-4">{template.description}</p>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 mb-4">
                   {template.features.map((feature) => (
                     <span
                       key={feature}
@@ -103,11 +108,25 @@ export function TemplateShowcase() {
                     </span>
                   ))}
                 </div>
+                <button
+                  onClick={() => setPreviewTemplate(template.name)}
+                  className="w-full py-2 text-sm text-zinc-400 hover:text-white bg-zinc-800/50 hover:bg-zinc-800 rounded-lg transition-colors duration-150"
+                >
+                  View Code
+                </button>
               </div>
             );
           })}
         </div>
       </div>
+
+      {/* Code Preview Modal */}
+      <CodePreviewModal
+        isOpen={previewTemplate !== null}
+        onClose={() => setPreviewTemplate(null)}
+        templateName={templates.find(t => t.name === previewTemplate)?.displayName || ''}
+        files={previewTemplate ? getCodeSnippets(previewTemplate) : []}
+      />
     </section>
   );
 }
