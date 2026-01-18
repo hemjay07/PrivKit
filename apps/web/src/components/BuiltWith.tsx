@@ -76,7 +76,7 @@ export function BuiltWith() {
               href={tech.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-zinc-500 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:text-zinc-100 transition-all duration-300"
+              className="text-zinc-500 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:text-zinc-100 transition-all duration-300 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               aria-label={`Built with ${tech.name}`}
             >
               {tech.logo}

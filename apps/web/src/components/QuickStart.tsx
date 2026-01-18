@@ -39,7 +39,7 @@ function CopyCodeButton({ text }: { text: string }) {
   return (
     <button
       onClick={handleCopy}
-      className="p-1.5 text-zinc-500 hover:text-zinc-300 transition-colors duration-150"
+      className="p-1.5 text-zinc-500 hover:text-zinc-300 transition-all duration-150 rounded active:scale-[0.9] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
       aria-label={copied ? 'Copied!' : 'Copy to clipboard'}
     >
       {copied ? (
@@ -93,7 +93,7 @@ export function QuickStart() {
             href="https://github.com/hemjay07/PrivKit#readme"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors duration-150"
+            className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors duration-150 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             View full documentation
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

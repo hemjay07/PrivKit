@@ -112,13 +112,13 @@ export function TemplateWizard() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={() => setStep('goal')}
-                className="px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition-colors duration-150"
+                className="px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition-all duration-150 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 Help Me Choose
               </button>
               <button
                 onClick={skipToTemplates}
-                className="px-6 py-3 bg-surface border border-border text-zinc-300 rounded-lg font-medium hover:bg-zinc-800 transition-colors duration-150"
+                className="px-6 py-3 bg-surface border border-border text-zinc-300 rounded-lg font-medium hover:bg-zinc-800 hover:border-zinc-600 transition-all duration-150 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 I Know What I Need
               </button>
@@ -197,13 +197,13 @@ export function TemplateWizard() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={reset}
-                className="px-6 py-3 bg-surface border border-border text-zinc-300 rounded-lg font-medium hover:bg-zinc-800 transition-colors duration-150"
+                className="px-6 py-3 bg-surface border border-border text-zinc-300 rounded-lg font-medium hover:bg-zinc-800 hover:border-zinc-600 transition-all duration-150 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 Start Over
               </button>
               <button
                 onClick={skipToTemplates}
-                className="px-6 py-3 bg-primary/10 border border-primary/20 text-primary rounded-lg font-medium hover:bg-primary/20 transition-colors duration-150"
+                className="px-6 py-3 bg-primary/10 border border-primary/20 text-primary rounded-lg font-medium hover:bg-primary/20 transition-all duration-150 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 View All Templates
               </button>
@@ -227,7 +227,7 @@ function WizardOption({
   return (
     <button
       onClick={onClick}
-      className="p-4 bg-surface border border-border rounded-lg text-left hover:border-primary/50 transition-colors duration-150 group"
+      className="p-4 bg-surface border border-border rounded-lg text-left hover:border-primary/50 transition-all duration-150 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background group"
     >
       <h3 className="font-semibold text-zinc-200 group-hover:text-white transition-colors">{title}</h3>
       <p className="text-sm text-zinc-500">{description}</p>

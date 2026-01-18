@@ -58,7 +58,7 @@ export function Hero() {
             href="https://github.com/hemjay07/PrivKit"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-zinc-400 hover:text-white transition-colors duration-150"
+            className="inline-flex items-center gap-2 text-zinc-400 hover:text-white transition-colors duration-150 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path

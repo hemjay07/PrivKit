@@ -151,7 +151,7 @@ export function SDKComparisonMatrix() {
             <button
               key={filter.id}
               onClick={() => setActiveFilter(filter.id)}
-              className={`px-3 py-1.5 text-sm rounded-lg transition-colors duration-150 ${
+              className={`px-3 py-1.5 text-sm rounded-lg transition-all duration-150 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
                 activeFilter === filter.id
                   ? 'bg-primary text-white'
                   : 'bg-surface border border-border text-zinc-400 hover:text-zinc-200 hover:border-zinc-600'

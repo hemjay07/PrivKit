@@ -10,7 +10,7 @@ export function Header() {
       <div className="max-w-6xl mx-auto flex items-center justify-between">
         <button
           onClick={scrollToTop}
-          className="flex items-center gap-2 group"
+          className="flex items-center gap-2 group rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           aria-label="Scroll to top"
         >
           {/* Logo Mark */}
@@ -35,7 +35,7 @@ export function Header() {
           href="https://github.com/hemjay07/PrivKit"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 px-3 py-2 text-sm text-zinc-400 hover:text-white bg-surface/80 backdrop-blur border border-border rounded-lg transition-colors duration-150"
+          className="flex items-center gap-2 px-3 py-2 text-sm text-zinc-400 hover:text-white bg-surface/80 backdrop-blur border border-border rounded-lg transition-all duration-150 hover:border-zinc-600 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path

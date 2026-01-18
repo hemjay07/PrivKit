@@ -72,7 +72,7 @@ export function GitHubStars() {
       href={`https://github.com/${GITHUB_REPO}`}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center gap-2 px-3 py-1.5 text-sm bg-surface border border-border rounded-full hover:border-zinc-600 transition-colors duration-150"
+      className="inline-flex items-center gap-2 px-3 py-1.5 text-sm bg-surface border border-border rounded-full hover:border-zinc-600 transition-all duration-150 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
       aria-label={`${stars} stars on GitHub`}
     >
       <svg className="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">

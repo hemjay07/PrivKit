@@ -130,7 +130,7 @@ export function Changelog() {
             href="https://github.com/hemjay07/PrivKit/releases"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 text-sm text-zinc-400 hover:text-white transition-colors duration-150"
+            className="inline-flex items-center gap-2 px-4 py-2 text-sm text-zinc-400 hover:text-white transition-colors duration-150 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             View full changelog on GitHub
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

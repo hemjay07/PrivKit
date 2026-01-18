@@ -2,7 +2,7 @@
 
 export function Footer() {
   return (
-    <footer className="px-4 py-12 sm:px-6 lg:px-8 border-t border-border">
+    <footer className="px-4 py-12 sm:px-6 lg:px-8 bg-surface/30 border-t border-border">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Logo and tagline */}

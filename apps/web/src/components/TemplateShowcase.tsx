@@ -110,7 +110,7 @@ export function TemplateShowcase() {
                 </div>
                 <button
                   onClick={() => setPreviewTemplate(template.name)}
-                  className="w-full py-2 text-sm text-zinc-400 hover:text-white bg-zinc-800/50 hover:bg-zinc-800 rounded-lg transition-colors duration-150"
+                  className="w-full py-2 text-sm text-zinc-400 hover:text-white bg-zinc-800/50 hover:bg-zinc-800 rounded-lg transition-all duration-150 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
                 >
                   View Code
                 </button>

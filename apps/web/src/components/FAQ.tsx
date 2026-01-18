@@ -85,7 +85,7 @@ export function FAQ() {
             href="https://github.com/hemjay07/PrivKit/issues"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-surface border border-border rounded-lg text-zinc-300 hover:text-white hover:border-zinc-600 transition-colors duration-150"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-surface border border-border rounded-lg text-zinc-300 hover:text-white hover:border-zinc-600 transition-all duration-150 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path
@@ -116,7 +116,7 @@ function FAQAccordion({ faq, isOpen, onToggle }: FAQAccordionProps) {
     >
       <button
         onClick={onToggle}
-        className="w-full px-5 py-4 flex items-center justify-between text-left"
+        className="w-full px-5 py-4 flex items-center justify-between text-left rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary"
         aria-expanded={isOpen}
         aria-controls={`faq-answer-${faq.id}`}
       >
