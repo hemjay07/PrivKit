@@ -13,6 +13,67 @@
 
 ---
 
+## Session 12 (Coding Agent)
+### Date: 2026-01-18
+
+### Summary
+Completed 24 more features (#193-216): Default & Reset, Template Selection, and Input Validation. Added explicit default values to CLI prompts for better UX.
+
+### Features Completed This Session (24 features)
+**Default & Reset (#193-203)**
+- Feature #193: Default git init is true - PASSING (.git created by default without --skip-git)
+- Feature #194: -y uses sensible defaults - PASSING (privacy-cash, npm, git init all applied)
+- Feature #195: Template prompts have clear defaults - PASSING (added explicit default: 'privacy-cash')
+- Feature #196: Empty Helius key handled with placeholder - PASSING (YOUR_HELIUS_API_KEY used)
+- Feature #197: All defaults documented in --help - PASSING (default: "npm", false shown)
+- Feature #198: Defaults match documentation - PASSING (README matches actual behavior)
+- Feature #199: No hidden defaults - PASSING (all defaults visible in help and code)
+- Feature #200: Defaults are sensible for beginners - PASSING (generated project builds successfully)
+- Feature #201: Reset and retry scenarios work - PASSING (delete and recreate works)
+- Feature #202: Defaults don't override explicit flags - PASSING (-p yarn with -y uses yarn)
+- Feature #203: Default template is privacy-cash - PASSING (privacycash dependency, privacy-cash.ts)
+
+**Template Selection (#204-208)**
+- Feature #204: All 4 templates shown in prompt - PASSING (privacy-cash, light-protocol, arcium, full-stack)
+- Feature #205: Template descriptions are accurate - PASSING (SDK mentions in descriptions)
+- Feature #206: Template selection validates input - PASSING (invalid template shows error + list)
+- Feature #207: Invalid template rejected with suggestions - PASSING (typo shows available templates)
+- Feature #208: Template flag case sensitivity - PASSING (PRIVACY-CASH fails, consistent behavior)
+
+**Input Validation (#209-216)**
+- Feature #209: Project name no spaces allowed - PASSING ("my project" rejected, suggests "my-project")
+- Feature #210: Project name no uppercase npm rule - PASSING (MyProject rejected with npm rules link)
+- Feature #211: Project name no leading dot - PASSING (.myproject rejected)
+- Feature #212: Project name no leading underscore - PASSING (_myproject rejected)
+- Feature #213: Project name special chars rejected - PASSING (@, !, / listed, alternative suggested)
+- Feature #214: Project name scoped names work - PASSING (handled with helpful alternative suggestion)
+- Feature #215: Template only 4 valid options - PASSING (4 work, 5th fails)
+- Feature #216: Package manager only npm/yarn/pnpm - PASSING (bun fails, shows valid options)
+
+### Implementation Work Done
+1. **Added explicit default options to CLI prompts**:
+   - Template selection: default: 'privacy-cash'
+   - Package manager selection: default: 'npm'
+   - This makes defaults more discoverable in interactive mode
+
+### Regression Tests Run
+- Feature #40: Generated tsconfig.json is valid - PASSING
+- Feature #120: Invalid JSON in template handled - PASSING
+
+### Current Progress
+- **215/335 features passing (64.2%)**
+- 1 feature blocked (awaiting Vercel deployment)
+- Default & Reset: Complete (11/11)
+- Template Selection: Complete (5/5)
+- Input Validation: Good progress (8+ features)
+
+### Next Steps
+1. Continue with remaining Input Validation features
+2. Test Feedback & Notification features
+3. Test Responsive & Layout features
+
+---
+
 ## Session 11 (Coding Agent)
 ### Date: 2026-01-18
 
