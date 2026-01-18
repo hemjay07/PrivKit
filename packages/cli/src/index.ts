@@ -83,7 +83,8 @@ export async function run(): Promise<void> {
             choices: templates.map(t => ({
               name: `${t.name.padEnd(18)} ${t.description}`,
               value: t.name
-            }))
+            })),
+            default: 'privacy-cash'
           });
 
           const packageManager = options.packageManager !== 'npm'
@@ -94,7 +95,8 @@ export async function run(): Promise<void> {
                   { name: 'npm', value: 'npm' },
                   { name: 'yarn', value: 'yarn' },
                   { name: 'pnpm', value: 'pnpm' }
-                ]
+                ],
+                default: 'npm'
               });
 
           // IMPORTANT: Using password() for masked input - this is feature #1
