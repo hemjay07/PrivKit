@@ -72,10 +72,15 @@ export function TerminalDemo() {
   };
 
   return (
-    <section className="px-4 py-16 sm:px-6 lg:px-8">
+    <section className="px-4 py-16 sm:px-6 lg:px-8" aria-label="Terminal demonstration">
       <div className="max-w-3xl mx-auto">
+        {/* Screen reader description */}
+        <p className="sr-only">
+          Animated terminal demo showing the create-solana-privacy-app CLI in action.
+          It demonstrates running the command, selecting a template, and seeing the success message.
+        </p>
         {/* Terminal window */}
-        <div className="bg-[#1a1a1a] rounded-lg border border-zinc-700 overflow-hidden shadow-2xl">
+        <div className="bg-[#1a1a1a] rounded-lg border border-zinc-700 overflow-hidden shadow-2xl" aria-hidden="true">
           {/* Terminal header */}
           <div className="flex items-center gap-2 px-4 py-3 bg-zinc-800/50 border-b border-zinc-700">
             <div className="w-3 h-3 rounded-full bg-red-500" />
