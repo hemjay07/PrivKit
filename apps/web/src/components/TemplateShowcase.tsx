@@ -8,7 +8,7 @@ const templates = [
     color: 'blue',
     features: ['SOL & SPL Tokens', 'ZK Proofs', 'Node 24+'],
     icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
       </svg>
     ),
@@ -20,7 +20,7 @@ const templates = [
     color: 'purple',
     features: ['Compressed Tokens', '5000x Savings', 'Helius RPC'],
     icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
       </svg>
     ),
@@ -32,7 +32,7 @@ const templates = [
     color: 'orange',
     features: ['MPC Network', 'Anchor', 'Advanced'],
     icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
       </svg>
     ),
@@ -44,7 +44,7 @@ const templates = [
     color: 'green',
     features: ['All 3 SDKs', 'Unified API', 'Comparison UI'],
     icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
       </svg>
     ),
@@ -77,7 +77,7 @@ export function TemplateShowcase() {
             return (
               <div
                 key={template.name}
-                className={`p-6 bg-surface rounded-xl border border-border card-hover ${colors.border}`}
+                className={`p-6 bg-surface rounded-lg border border-border card-hover ${colors.border}`}
               >
                 <div className={`w-12 h-12 rounded-lg ${colors.bg} ${colors.text} flex items-center justify-center mb-4`}>
                   {template.icon}
@@ -88,7 +88,7 @@ export function TemplateShowcase() {
                   {template.features.map((feature) => (
                     <span
                       key={feature}
-                      className="text-xs px-2 py-1 bg-zinc-800 rounded-md text-zinc-400"
+                      className="text-xs px-2 py-1 bg-zinc-800 rounded-lg text-zinc-400"
                     >
                       {feature}
                     </span>

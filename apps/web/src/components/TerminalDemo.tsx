@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 const DEMO_LINES = [
   { text: '$ npx create-solana-privacy-app my-app', delay: 0 },
@@ -34,8 +34,29 @@ const DEMO_LINES = [
 
 export function TerminalDemo() {
   const [visibleLines, setVisibleLines] = useState<number>(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
 
+  // Intersection Observer to detect visibility
   useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Animation effect - only runs when visible
+  useEffect(() => {
+    if (!isVisible) return;
+
     const timers: NodeJS.Timeout[] = [];
 
     DEMO_LINES.forEach((line, index) => {
@@ -54,7 +75,7 @@ export function TerminalDemo() {
     return () => {
       timers.forEach(clearTimeout);
     };
-  }, [visibleLines === 0]);
+  }, [isVisible, visibleLines === 0]);
 
   const getColorClass = (color?: string) => {
     switch (color) {
@@ -72,7 +93,7 @@ export function TerminalDemo() {
   };
 
   return (
-    <section className="px-4 py-16 sm:px-6 lg:px-8" aria-label="Terminal demonstration">
+    <section ref={sectionRef} className="px-4 py-16 sm:px-6 lg:px-8" aria-label="Terminal demonstration">
       <div className="max-w-3xl mx-auto">
         {/* Screen reader description */}
         <p className="sr-only">

@@ -22,13 +22,13 @@ export function CopyButton({ text }: CopyButtonProps) {
   return (
     <button
       onClick={handleCopy}
-      className="p-3 bg-surface border border-border rounded-lg hover:bg-zinc-800 transition-colors"
+      className="p-3 min-h-[44px] min-w-[44px] bg-surface border border-border rounded-lg hover:bg-zinc-800 active:scale-[0.97] transition-all duration-150 ease-out flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
       aria-label={copied ? 'Copied!' : 'Copy to clipboard'}
       title={copied ? 'Copied!' : 'Copy to clipboard'}
     >
       {copied ? (
         <svg
-          className="w-5 h-5 text-success"
+          className="w-5 h-5 text-success transition-all duration-150"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -42,7 +42,7 @@ export function CopyButton({ text }: CopyButtonProps) {
         </svg>
       ) : (
         <svg
-          className="w-5 h-5 text-zinc-400"
+          className="w-5 h-5 text-zinc-400 transition-all duration-150"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
