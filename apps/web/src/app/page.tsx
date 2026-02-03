@@ -14,7 +14,6 @@ import { QuickStart } from '@/components/QuickStart';
 import { SDKComparisonMatrix } from '@/components/SDKComparisonMatrix';
 import { FAQ } from '@/components/FAQ';
 import { Ecosystem } from '@/components/Ecosystem';
-import { Changelog } from '@/components/Changelog';
 import { Header } from '@/components/Header';
 
 export default function Home() {
@@ -34,7 +33,6 @@ export default function Home() {
       <Ecosystem />
       <ComparisonTable />
       <FAQ />
-      <Changelog />
       <Footer />
     </main>
   );

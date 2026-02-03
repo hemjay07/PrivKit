@@ -218,7 +218,7 @@ export function TerminalDemo() {
           </div>
 
           {/* Terminal content */}
-          <div className="p-4 font-mono text-sm h-[400px] overflow-hidden">
+          <div className="p-4 font-mono text-xs sm:text-sm h-[320px] sm:h-[400px] overflow-x-auto overflow-y-hidden">
             {currentVariant.lines.slice(0, visibleLines).map((line, index) => (
               <div key={`${activeVariant}-${index}`} className={`${getColorClass(line.color)} whitespace-pre`}>
                 {line.text || '\u00A0'}

@@ -29,9 +29,9 @@ export function Hero() {
 
         {/* Command with copy button */}
         <ScrollReveal delay={0.2}>
-          <div className="inline-flex items-center gap-2 mb-10">
-            <div className="flex items-center bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-3">
-              <code className="font-mono text-success text-sm sm:text-base">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 mb-10">
+            <div className="flex items-center bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-3 w-full sm:w-auto overflow-x-auto">
+              <code className="font-mono text-success text-xs sm:text-sm whitespace-nowrap">
                 {command}
               </code>
             </div>
