@@ -9,15 +9,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: '#0a0a0b',
-        surface: '#18181b',
+        background: '#0a0a0f',
+        surface: '#12121a',
         border: '#27272a',
-        primary: '#3b82f6',
-        secondary: '#8b5cf6',
+        primary: '#f59e0b',
+        'primary-hover': '#fbbf24',
         accent: '#f97316',
-        success: '#10b981',
+        success: '#22c55e',
         error: '#ef4444',
-        'terminal-green': '#22c55e',
       },
       fontFamily: {
         mono: ['JetBrains Mono', 'monospace'],

@@ -77,11 +77,9 @@
   --border: #27272a;
   --primary: #f59e0b;
   --primary-hover: #fbbf24;
-  --primary-muted: #d97706;
   --accent: #f97316;
   --success: #22c55e;
   --error: #ef4444;
-  --terminal-green: #22c55e;
 }
 
 body {
@@ -182,7 +180,6 @@ body {
   .card-hover:hover {
     transform: translateY(-2px);
     border-color: rgba(245, 158, 11, 0.5);
-    box-shadow: 0 10px 40px -10px rgba(245, 158, 11, 0.2);
   }
 }
 
@@ -197,8 +194,7 @@ body {
 
 @media (hover: hover) {
   .card:hover {
-    border-color: rgba(245, 158, 11, 0.4);
-    box-shadow: 0 0 30px -10px rgba(245, 158, 11, 0.15);
+    border-color: rgba(245, 158, 11, 0.5);
   }
 }
 
@@ -302,7 +298,6 @@ a,
 @media (hover: hover) {
   .btn-primary:hover {
     background: var(--primary-hover);
-    box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
   }
 }
 
@@ -364,34 +359,6 @@ a,
   border-radius: 0.25rem;
 }
 
-/* Gold glow effect for special elements */
-.gold-glow {
-  box-shadow: 0 0 30px -5px rgba(245, 158, 11, 0.4);
-}
-
-/* Gold border accent */
-.gold-border {
-  border-color: rgba(245, 158, 11, 0.5);
-}
-
-/* Gold gradient border */
-.gold-gradient-border {
-  position: relative;
-}
-
-.gold-gradient-border::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.6), rgba(245, 158, 11, 0.1), rgba(245, 158, 11, 0.6));
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
-}
 
 /*
  * RESPONSIVE BREAKPOINTS

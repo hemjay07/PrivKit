@@ -9,11 +9,8 @@ export function Hero() {
   const command = 'npx create-solana-privacy-app';
 
   return (
-    <section id="hero" className="relative px-4 pt-24 pb-20 sm:px-6 lg:px-8 overflow-hidden">
-      {/* Gold ambient glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
-
-      <div className="relative max-w-4xl mx-auto text-center">
+    <section id="hero" className="relative px-4 pt-24 pb-20 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto text-center">
         {/* Tagline */}
         <ScrollReveal>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
@@ -34,9 +31,9 @@ export function Hero() {
         {/* Command with copy button */}
         <ScrollReveal delay={0.2}>
           <div className="flex items-center justify-center gap-3 mb-8">
-            <div className="flex items-center bg-surface border border-primary/30 rounded-lg px-5 py-3.5 shadow-[0_0_30px_-5px_rgba(245,158,11,0.3)]">
+            <div className="flex items-center bg-surface border border-primary/40 rounded-lg px-5 py-3.5">
               <span className="text-primary font-mono mr-2">$</span>
-              <code className="font-mono text-primary text-sm sm:text-base font-medium">
+              <code className="font-mono text-primary text-sm sm:text-base">
                 {command}
               </code>
             </div>
