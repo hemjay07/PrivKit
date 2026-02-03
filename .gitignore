@@ -49,3 +49,10 @@ next-env.d.ts
 # package-lock.json
 # yarn.lock
 # pnpm-lock.yaml
+
+# Claude Code
+CLAUDE.md
+.claude_settings.json
+claude-progress.txt
+.claude/
+
