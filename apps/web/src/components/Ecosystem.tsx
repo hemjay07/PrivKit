@@ -26,7 +26,7 @@ const sdks: SDK[] = [
     name: 'Light Protocol',
     description: 'State compression for Solana. Reduce on-chain storage costs by up to 1000x using compressed accounts.',
     docsUrl: 'https://lightprotocol.com/docs',
-    color: 'secondary',
+    color: 'primary',
     features: ['State Compression', 'Cost Reduction', 'Scalability'],
     icon: (
       <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
@@ -54,12 +54,6 @@ const colorClasses: Record<string, { bg: string; border: string; text: string; b
     border: 'border-primary/30 hover:border-primary/50',
     text: 'text-primary',
     badge: 'bg-primary/20 text-primary',
-  },
-  secondary: {
-    bg: 'bg-secondary/10',
-    border: 'border-secondary/30 hover:border-secondary/50',
-    text: 'text-secondary',
-    badge: 'bg-secondary/20 text-secondary',
   },
   accent: {
     bg: 'bg-accent/10',

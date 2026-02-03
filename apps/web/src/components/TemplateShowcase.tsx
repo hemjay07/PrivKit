@@ -61,7 +61,7 @@ export function TemplateShowcase() {
   const getColorClasses = (color: string) => {
     const colors: Record<string, { border: string; text: string; bg: string }> = {
       blue: { border: 'hover:border-primary/50', text: 'text-primary', bg: 'bg-primary/10' },
-      purple: { border: 'hover:border-secondary/50', text: 'text-secondary', bg: 'bg-secondary/10' },
+      purple: { border: 'hover:border-primary/50', text: 'text-primary', bg: 'bg-primary/10' },
       orange: { border: 'hover:border-accent/50', text: 'text-accent', bg: 'bg-accent/10' },
       green: { border: 'hover:border-success/50', text: 'text-success', bg: 'bg-success/10' },
     };

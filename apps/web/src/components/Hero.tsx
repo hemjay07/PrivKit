@@ -41,15 +41,6 @@ export function Hero() {
           </div>
         </ScrollReveal>
 
-        {/* Bounty badges */}
-        <ScrollReveal delay={0.3}>
-          <div className="flex flex-wrap justify-center gap-3">
-            <Badge text="Privacy Tooling $15k" color="blue" />
-            <Badge text="Helius $5k" color="purple" />
-            <Badge text="Quicknode $3k" color="orange" />
-            <Badge text="Aztec $2.5k" color="green" />
-          </div>
-        </ScrollReveal>
 
         {/* GitHub link and stars */}
         <ScrollReveal delay={0.4}>
@@ -78,17 +69,3 @@ export function Hero() {
   );
 }
 
-function Badge({ text, color }: { text: string; color: 'blue' | 'purple' | 'orange' | 'green' }) {
-  const colors = {
-    blue: 'bg-primary/10 text-primary border-primary/20',
-    purple: 'bg-secondary/10 text-secondary border-secondary/20',
-    orange: 'bg-accent/10 text-accent border-accent/20',
-    green: 'bg-success/10 text-success border-success/20',
-  };
-
-  return (
-    <span className={`px-3 py-1.5 min-h-[32px] inline-flex items-center text-sm rounded-full border ${colors[color]}`}>
-      {text}
-    </span>
-  );
-}

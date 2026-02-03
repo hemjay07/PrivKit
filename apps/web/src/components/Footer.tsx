@@ -7,7 +7,7 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Logo and tagline */}
           <div className="flex items-center gap-3 text-center md:text-left">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center flex-shrink-0">
+            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center flex-shrink-0">
               <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M12 1a4 4 0 0 0-4 4v3H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2h-2V5a4 4 0 0 0-4-4zm0 2a2 2 0 0 1 2 2v3h-4V5a2 2 0 0 1 2-2z" />
               </svg>
@@ -54,24 +54,6 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Hackathon targets */}
-        <div className="mt-8 pt-8 border-t border-border text-center">
-          <p className="text-sm text-zinc-500 mb-4">Built for hackathon success</p>
-          <div className="flex flex-wrap justify-center gap-3">
-            <span className="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full">
-              Privacy Tooling $15k
-            </span>
-            <span className="text-xs px-3 py-1 bg-secondary/10 text-secondary rounded-full">
-              Helius $5k
-            </span>
-            <span className="text-xs px-3 py-1 bg-accent/10 text-accent rounded-full">
-              Quicknode $3k
-            </span>
-            <span className="text-xs px-3 py-1 bg-success/10 text-success rounded-full">
-              Aztec $2.5k
-            </span>
-          </div>
-        </div>
       </div>
     </footer>
   );

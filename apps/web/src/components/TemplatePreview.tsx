@@ -117,7 +117,7 @@ const templateFiles: Record<string, FileNode[]> = {
 
 const templates = [
   { id: 'privacy-cash', name: 'Privacy Cash', color: 'primary', meaning: 'Trust', bg: 'bg-primary/10', border: 'border-primary/30', text: 'text-primary' },
-  { id: 'light-protocol', name: 'Light Protocol', color: 'secondary', meaning: 'Innovation', bg: 'bg-secondary/10', border: 'border-secondary/30', text: 'text-secondary' },
+  { id: 'light-protocol', name: 'Light Protocol', color: 'primary', meaning: 'Innovation', bg: 'bg-primary/10', border: 'border-primary/30', text: 'text-primary' },
   { id: 'arcium', name: 'Arcium', color: 'accent', meaning: 'Power', bg: 'bg-accent/10', border: 'border-accent/30', text: 'text-accent' },
   { id: 'full-stack', name: 'Full Stack', color: 'success', meaning: 'Growth', bg: 'bg-success/10', border: 'border-success/30', text: 'text-success' },
 ];

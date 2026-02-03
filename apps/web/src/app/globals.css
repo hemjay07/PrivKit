@@ -49,10 +49,9 @@
  * - foreground (#fafafa): Primary text
  *
  * Brand Colors:
- * - primary (#3b82f6): Blue - Privacy Cash, main actions
- * - secondary (#8b5cf6): Purple - Light Protocol
+ * - primary (#F59E0B): Gold - Main actions, Privacy Cash, Light Protocol
  * - accent (#f97316): Orange - Arcium
- * - success (#10b981): Green - Full Stack, confirmations
+ * - success (#22C55E): Green - Full Stack, confirmations
  *
  * Semantic Colors:
  * - error (#ef4444): Error states
@@ -68,18 +67,19 @@
  * Usage Rules:
  * 1. terminal-green is ONLY for CLI commands and terminal UI
  * 2. Use theme colors (bg-surface, border-border) instead of hardcoded values
- * 3. Template colors are consistent: primary=Privacy Cash, secondary=Light, accent=Arcium, success=Full Stack
+ * 3. Template colors are consistent: primary=Privacy Cash & Light Protocol, accent=Arcium, success=Full Stack
  */
 
 :root {
-  --background: #0a0a0b;
+  --background: #0a0a0f;
   --foreground: #fafafa;
-  --surface: #18181b;
+  --surface: #12121a;
   --border: #27272a;
-  --primary: #3b82f6;
-  --secondary: #8b5cf6;
+  --primary: #f59e0b;
+  --primary-hover: #fbbf24;
+  --primary-muted: #d97706;
   --accent: #f97316;
-  --success: #10b981;
+  --success: #22c55e;
   --error: #ef4444;
   --terminal-green: #22c55e;
 }
@@ -145,12 +145,10 @@ body {
   }
 }
 
-/* Gradient text */
+/* Gradient text - Gold theme */
 .gradient-text {
-  background: linear-gradient(to right, var(--primary), var(--secondary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--primary);
+  -webkit-text-fill-color: var(--primary);
 }
 
 /* Fix text selection on gradient text */

@@ -14,7 +14,7 @@ export function Header() {
           aria-label="Scroll to top"
         >
           {/* Logo Mark */}
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
             <svg
               className="w-5 h-5 text-white"
               viewBox="0 0 24 24"

@@ -96,7 +96,7 @@ const features: FeatureRow[] = [
 
 const templates = [
   { id: 'privacyCash', name: 'Privacy Cash', color: 'text-primary', bg: 'bg-primary/10' },
-  { id: 'lightProtocol', name: 'Light Protocol', color: 'text-secondary', bg: 'bg-secondary/10' },
+  { id: 'lightProtocol', name: 'Light Protocol', color: 'text-primary', bg: 'bg-primary/10' },
   { id: 'arcium', name: 'Arcium', color: 'text-accent', bg: 'bg-accent/10' },
   { id: 'fullStack', name: 'Full Stack', color: 'text-success', bg: 'bg-success/10' },
 ];
