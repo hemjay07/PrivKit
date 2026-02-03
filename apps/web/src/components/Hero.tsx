@@ -9,31 +9,34 @@ export function Hero() {
   const command = 'npx create-solana-privacy-app';
 
   return (
-    <section id="hero" className="relative px-4 pt-24 pb-20 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto text-center">
+    <section id="hero" className="relative px-4 pt-24 pb-20 sm:px-6 lg:px-8 overflow-hidden">
+      {/* Gold ambient glow */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="relative max-w-4xl mx-auto text-center">
         {/* Tagline */}
         <ScrollReveal>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
             <span className="gradient-text">Zero to private</span>
             <br />
-            in one command
+            <span className="text-white">in one command</span>
           </h1>
         </ScrollReveal>
 
         {/* Description */}
         <ScrollReveal delay={0.1}>
           <p className="text-lg sm:text-xl text-zinc-400 mb-8 max-w-2xl mx-auto">
-            The <span className="text-white">create-react-app</span> for Solana privacy development.
-            Scaffold complete projects with Privacy Cash, Light Protocol, or Arcium
-            in seconds.
+            The <span className="text-primary font-medium">create-react-app</span> for Solana privacy development.
+            Scaffold complete projects with <span className="text-zinc-200">Privacy Cash</span>, <span className="text-zinc-200">Light Protocol</span>, or <span className="text-zinc-200">Arcium</span> in seconds.
           </p>
         </ScrollReveal>
 
         {/* Command with copy button */}
         <ScrollReveal delay={0.2}>
           <div className="flex items-center justify-center gap-3 mb-8">
-            <div className="flex items-center bg-surface border border-border rounded-lg px-4 py-3">
-              <code className="font-mono text-terminal-green text-sm sm:text-base">
+            <div className="flex items-center bg-surface border border-primary/30 rounded-lg px-5 py-3.5 shadow-[0_0_30px_-5px_rgba(245,158,11,0.3)]">
+              <span className="text-primary font-mono mr-2">$</span>
+              <code className="font-mono text-primary text-sm sm:text-base font-medium">
                 {command}
               </code>
             </div>
@@ -49,7 +52,7 @@ export function Hero() {
             href="https://github.com/hemjay07/PrivKit"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-zinc-400 hover:text-white transition-colors duration-150 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            className="inline-flex items-center gap-2 text-zinc-400 hover:text-primary transition-colors duration-150 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path

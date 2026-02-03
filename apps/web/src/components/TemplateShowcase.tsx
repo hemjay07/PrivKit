@@ -62,8 +62,8 @@ export function TemplateShowcase() {
     const colors: Record<string, { border: string; text: string; bg: string }> = {
       blue: { border: 'hover:border-primary/50', text: 'text-primary', bg: 'bg-primary/10' },
       purple: { border: 'hover:border-primary/50', text: 'text-primary', bg: 'bg-primary/10' },
-      orange: { border: 'hover:border-accent/50', text: 'text-accent', bg: 'bg-accent/10' },
-      green: { border: 'hover:border-success/50', text: 'text-success', bg: 'bg-success/10' },
+      orange: { border: 'hover:border-primary/50', text: 'text-primary', bg: 'bg-primary/10' },
+      green: { border: 'hover:border-primary/50', text: 'text-primary', bg: 'bg-primary/10' },
     };
     return colors[color] || colors.blue;
   };
@@ -110,7 +110,7 @@ export function TemplateShowcase() {
                 </div>
                 <button
                   onClick={() => setPreviewTemplate(template.name)}
-                  className="w-full py-2 text-sm text-zinc-400 hover:text-white bg-zinc-800/50 hover:bg-zinc-800 rounded-lg transition-all duration-150 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+                  className="w-full py-2 text-sm text-zinc-300 hover:text-primary border border-border hover:border-primary/50 bg-transparent hover:bg-primary/5 rounded-lg transition-all duration-150 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
                 >
                   View Code
                 </button>

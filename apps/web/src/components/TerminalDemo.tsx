@@ -197,8 +197,8 @@ export function TerminalDemo() {
               onClick={() => setActiveVariant(variant.id)}
               className={`px-4 py-2 text-sm rounded-lg transition-all duration-150 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
                 activeVariant === variant.id
-                  ? 'bg-primary text-white'
-                  : 'bg-surface border border-border text-zinc-400 hover:text-zinc-200 hover:border-zinc-600'
+                  ? 'bg-primary text-background font-semibold'
+                  : 'bg-surface border border-border text-zinc-400 hover:text-primary hover:border-primary/50'
               }`}
             >
               <span className="font-medium">{variant.name}</span>
@@ -225,7 +225,7 @@ export function TerminalDemo() {
               </div>
             ))}
             {/* Blinking cursor */}
-            <span className="inline-block w-2 h-4 bg-terminal-green cursor-blink" />
+            <span className="inline-block w-2 h-4 bg-primary cursor-blink" />
           </div>
         </div>
       </div>

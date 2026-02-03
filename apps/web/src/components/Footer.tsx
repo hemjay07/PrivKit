@@ -24,7 +24,7 @@ export function Footer() {
               href="https://github.com/hemjay07/PrivKit"
               target="_blank"
               rel="noopener noreferrer"
-              className="min-h-[44px] min-w-[44px] flex items-center justify-center text-zinc-400 hover:text-white transition-colors duration-150 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              className="min-h-[44px] min-w-[44px] flex items-center justify-center text-zinc-400 hover:text-primary transition-colors duration-150 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               aria-label="GitHub"
             >
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -39,7 +39,7 @@ export function Footer() {
               href="https://www.npmjs.com/package/create-solana-privacy-app"
               target="_blank"
               rel="noopener noreferrer"
-              className="min-h-[44px] min-w-[44px] flex items-center justify-center text-zinc-400 hover:text-white transition-colors duration-150 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              className="min-h-[44px] min-w-[44px] flex items-center justify-center text-zinc-400 hover:text-primary transition-colors duration-150 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               aria-label="npm"
             >
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
