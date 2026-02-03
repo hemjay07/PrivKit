@@ -60,10 +60,10 @@ export function TemplateShowcase() {
 
   const getColorClasses = (color: string) => {
     const colors: Record<string, { border: string; text: string; bg: string }> = {
-      blue: { border: 'hover:border-primary/50', text: 'text-primary', bg: 'bg-primary/10' },
-      purple: { border: 'hover:border-primary/50', text: 'text-primary', bg: 'bg-primary/10' },
-      orange: { border: 'hover:border-primary/50', text: 'text-primary', bg: 'bg-primary/10' },
-      green: { border: 'hover:border-primary/50', text: 'text-primary', bg: 'bg-primary/10' },
+      blue: { border: 'hover:border-zinc-700', text: 'text-primary', bg: 'bg-primary/10' },
+      purple: { border: 'hover:border-zinc-700', text: 'text-primary', bg: 'bg-primary/10' },
+      orange: { border: 'hover:border-zinc-700', text: 'text-accent', bg: 'bg-accent/10' },
+      green: { border: 'hover:border-zinc-700', text: 'text-success', bg: 'bg-success/10' },
     };
     return colors[color] || colors.blue;
   };
@@ -84,12 +84,12 @@ export function TemplateShowcase() {
             return (
               <div
                 key={template.name}
-                className={`relative p-6 bg-surface rounded-lg border card-hover ${colors.border} ${
-                  isRecommended ? 'border-primary/50 ring-1 ring-primary/20' : 'border-border'
+                className={`relative p-6 bg-zinc-900 rounded-lg border transition-colors duration-150 ${colors.border} ${
+                  isRecommended ? 'border-primary' : 'border-zinc-800'
                 }`}
               >
                 {isRecommended && (
-                  <span className="absolute -top-3 left-4 px-2 py-0.5 text-xs font-medium bg-primary text-white rounded-full">
+                  <span className="absolute -top-3 left-4 px-2.5 py-1 text-xs font-medium bg-primary text-white rounded-md">
                     Recommended
                   </span>
                 )}
@@ -110,7 +110,7 @@ export function TemplateShowcase() {
                 </div>
                 <button
                   onClick={() => setPreviewTemplate(template.name)}
-                  className="w-full py-2 text-sm text-zinc-300 hover:text-primary border border-border hover:border-primary/50 bg-transparent hover:bg-primary/5 rounded-lg transition-all duration-150 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+                  className="w-full py-2 text-sm text-zinc-400 hover:text-zinc-100 border border-zinc-800 hover:border-zinc-700 bg-zinc-900 rounded-lg transition-colors duration-150 active:scale-[0.98]"
                 >
                   View Code
                 </button>

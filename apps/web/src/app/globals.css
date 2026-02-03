@@ -71,13 +71,13 @@
  */
 
 :root {
-  --background: #0a0a0f;
+  --background: #09090b;
   --foreground: #fafafa;
-  --surface: #12121a;
+  --surface: #18181b;
   --border: #27272a;
-  --primary: #f59e0b;
-  --primary-hover: #fbbf24;
-  --accent: #f97316;
+  --primary: #3b82f6;
+  --primary-hover: #60a5fa;
+  --accent: #f59e0b;
   --success: #22c55e;
   --error: #ef4444;
 }
@@ -143,10 +143,9 @@ body {
   }
 }
 
-/* Gradient text - Gold theme */
+/* Primary colored text */
 .gradient-text {
   color: var(--primary);
-  -webkit-text-fill-color: var(--primary);
 }
 
 /* Fix text selection on gradient text */

@@ -39,7 +39,7 @@ function CopyCodeButton({ text }: { text: string }) {
   return (
     <button
       onClick={handleCopy}
-      className="p-1.5 text-zinc-500 hover:text-primary transition-all duration-150 rounded active:scale-[0.9] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+      className="p-1.5 text-zinc-500 hover:text-zinc-300 transition-colors duration-150 rounded active:scale-[0.9]"
       aria-label={copied ? 'Copied!' : 'Copy to clipboard'}
     >
       {copied ? (
@@ -75,9 +75,8 @@ export function QuickStart() {
               {/* Step content */}
               <div className="flex-grow">
                 <h3 className="font-semibold text-zinc-200 mb-2">{step.title}</h3>
-                <div className="flex items-center gap-2 bg-surface border border-primary/20 rounded-lg px-4 py-2.5">
-                  <span className="text-primary font-mono text-sm">$</span>
-                  <code className="flex-grow font-mono text-sm text-primary/90">
+                <div className="flex items-center gap-2 bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-2.5">
+                  <code className="flex-grow font-mono text-sm text-success">
                     {step.code}
                   </code>
                   {step.number !== 2 && <CopyCodeButton text={step.code} />}

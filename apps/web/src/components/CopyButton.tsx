@@ -22,7 +22,7 @@ export function CopyButton({ text }: CopyButtonProps) {
   return (
     <button
       onClick={handleCopy}
-      className="p-3 min-h-[44px] min-w-[44px] bg-primary text-background rounded-lg hover:bg-primary-hover active:scale-[0.97] transition-colors duration-150 ease-out flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+      className="p-3 min-h-[44px] min-w-[44px] bg-zinc-900 border border-zinc-800 text-zinc-400 rounded-lg hover:text-zinc-100 hover:border-zinc-700 active:scale-[0.97] transition-colors duration-150 ease-out flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
       aria-label={copied ? 'Copied!' : 'Copy to clipboard'}
       title={copied ? 'Copied!' : 'Copy to clipboard'}
     >
