@@ -80,8 +80,10 @@ export function NpmDownloads() {
     fetchDownloads();
   }, []);
 
-  // Don't render anything if loading or error
-  if (loading || error || downloads === null) {
+  // Don't render anything if loading, error, or downloads below threshold
+  // Hide low numbers for new packages - doesn't look professional
+  const MIN_DOWNLOADS_TO_SHOW = 500;
+  if (loading || error || downloads === null || downloads < MIN_DOWNLOADS_TO_SHOW) {
     return null;
   }
 

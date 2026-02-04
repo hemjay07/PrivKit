@@ -173,6 +173,13 @@ npm run dev      # localhost:3000
 npm run build    # Production build
 ```
 
+## Roadmap
+
+- **Elusiv template** - Adding support once their SDK stabilizes
+- **Dry-run mode** - Preview generated files before committing with `--dry-run`
+- **Template versioning** - Pull updates into existing projects without re-scaffolding
+- **`privkit doctor`** - Validate local dev setup (Solana CLI, Anchor, Node version) before scaffolding
+
 ## Contributing
 
 Contributions are welcome! Please read our contributing guidelines.
@@ -180,16 +187,3 @@ Contributions are welcome! Please read our contributing guidelines.
 ## License
 
 MIT License - see [LICENSE](LICENSE) for details.
-
-## Hackathon Targets
-
-- **Privacy Tooling Track**: $15,000
-- **Quicknode**: $3,000
-- **Helius**: $5,000
-- **Aztec (Non-Financial)**: $2,500
-
-**Total Target: $25,500**
-
----
-
-Built with ❤️ for the Solana privacy ecosystem.
