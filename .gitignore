@@ -56,3 +56,10 @@ CLAUDE.md
 claude-progress.txt
 .claude/
 
+# Internal development files
+app_spec.txt
+prompts/
+UNDERSTANDING_PRIVKIT.md
+UNDERSTANDING_PRIVKIT.pdf
+apps/video/
+
