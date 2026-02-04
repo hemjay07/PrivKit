@@ -11,7 +11,7 @@
   Zero to private in one command
 ```
 
-**PrivKit** is the create-react-app for Solana privacy development. One command scaffolds a complete project with Privacy Cash, Light Protocol, or Arcium — pre-configured for devnet deployment with built-in privacy testing.
+**PrivKit** is the create-react-app for Solana privacy development. One command scaffolds a complete project with Privacy Cash, Light Protocol, or Arcium — pre-configured for devnet deployment with built-in privacy testing
 
 ## Quick Start
 
