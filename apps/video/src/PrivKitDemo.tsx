@@ -22,7 +22,7 @@ import { TerminalAnimation } from "./components/TerminalAnimation";
 // NO PURPLE - matches app design system
 // ============================================================
 
-// Design System Colors (from CLAUDE.md)
+// Design System Colors
 const COLORS = {
   bgMain: "#0A0A0F",
   bgSurface: "#12121A",

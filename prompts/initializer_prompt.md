@@ -18,7 +18,7 @@ This file contains the exact code for all 94 files. Use it as your implementatio
 **Design System Note:**
 - Pay special attention to the `<design_system>` section in app_spec.txt
 - Note the color palette, typography, and component styles specified
-- If a `CLAUDE.md` file exists in the project root, it contains high-level design guidance
+- Check the project root for any design guidance documentation
 - When creating feature tests, reference these design specs where relevant
 - Example: "Terminal window uses bg-[#1a1a1a] with green blinking cursor"
 
@@ -436,7 +436,7 @@ Remember:
 Before your context fills up:
 
 1. Commit all work with descriptive messages
-2. Create `claude-progress.txt` with a summary of what you accomplished
+2. Create `progress.txt` with a summary of what you accomplished
 3. Verify features were created using the feature_get_stats tool
 4. Leave the environment in a clean, working state
 
